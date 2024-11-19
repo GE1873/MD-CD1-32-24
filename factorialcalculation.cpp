@@ -8,7 +8,7 @@ FactorialCalculation::FactorialCalculation()
 
 void FactorialCalculation::calculateFactorial() const
 {
-#ifdef FLOAT
+#ifdef _FLOAT
     float f = calculation(5.0f);
     std::cout << std::left << std::setw(40) << "Factorial of number 5 in FLOAT:" << std::setw(40) << std::fixed << std::setprecision(1) << f <<std::endl;
 #else

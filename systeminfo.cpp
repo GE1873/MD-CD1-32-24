@@ -13,9 +13,9 @@ SystemInfo::SystemInfo()
 
 void SystemInfo::getOSInfo () const
 {
-    std::string osName = "";
-    std::string osVersion = "";
-    std::string osType = "";
+    std::string osName = "undefined";
+    std::string osVersion = "undefined";
+    std::string osType = "undefined";
 
 #if defined(__linux__)
     osName = "Linux";
@@ -58,10 +58,6 @@ void SystemInfo::getOSInfo () const
 #else
         "x86";
 #endif
-#else
-    osName = "undefined";
-    osVersion = "undefined";
-    osType = "undefined";
 #endif
 
     std::cout << std::left << std::setw(25) << "OS name : " << std::setw(25) << osName << std::endl;
@@ -71,24 +67,25 @@ void SystemInfo::getOSInfo () const
 
 void SystemInfo::getCompilerInfo() const
 {
-    std::string compilerName = "";
-    std::string compilerVersion = "";
+    std::string compilerName = "undefined";
+    std::string compilerVersion = "undefined";
+    std::string cppVersion = "undefined";
 
 #if defined (__clang__)
     compilerName = "clang++";
     compilerVersion = std::string(__VERSION__);
+    cppVersion = std::to_string(__cplusplus);
 #elif defined (_MSC_VER)
     compilerName = "msvc";
     compilerVersion = std::string(_MSC_FULL_VER);
+    cppVersion = std::to_string(__cplusplus);
 #elif defined (__GNUC__)
     compilerName = "g++";
     compilerVersion = std::string(__VERSION__);
-#else
-    compilerName = "undefined";
-    compilerVersion = "undefined";
+    cppVersion = std::to_string(__cplusplus);
 #endif
 
     std::cout << std::left << std::setw(25) << "Compiler name : " <<  std::setw(25) << compilerName << std::endl;
     std::cout << std::setw(25) << "Compiler version : " << std::setw(25) << compilerVersion << std::endl;
-    std::cout << std::setw(25) << "C++ language version : " << std::setw(25) << __cplusplus << std::endl;    
+    std::cout << std::setw(25) << "C++ language version : " << std::setw(25) << cppVersion << std::endl;
 }
