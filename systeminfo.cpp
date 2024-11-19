@@ -1,6 +1,4 @@
 #include "systeminfo.h"
-#include <iostream>
-#include <iomanip>
 
 #if defined(__linux__)
 #include <sys/utsname.h>

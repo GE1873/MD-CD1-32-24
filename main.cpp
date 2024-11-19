@@ -1,5 +1,3 @@
-#include <iomanip>
-#include <iostream>
 #include "factorialcalculation.h"
 #include "systeminfo.h"
 

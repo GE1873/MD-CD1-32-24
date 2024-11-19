@@ -1,8 +1,8 @@
 #ifndef SYSTEMINFO_H
 #define SYSTEMINFO_H
 
-#include <string>
-#include <sstream>
+#include <iostream>
+#include <iomanip>
 
 ///
 /// \brief Getting system information about OS and compiler
