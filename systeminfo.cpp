@@ -71,27 +71,21 @@ void SystemInfo::getOSInfo () const
 
 void SystemInfo::getCompilerInfo() const
 {
+    std::string compilerName = "";
+    std::string compilerVersion = "";
 
-    std::string compilerName =
 #if defined (__clang__)
-        "clang++";
+    compilerName = "clang++";
+    compilerVersion = std::string(__VERSION__);
 #elif defined (_MSC_VER)
-        "msvc";
+    compilerName = "msvc";
+    compilerVersion = std::string(_MSC_FULL_VER);
 #elif defined (__GNUC__)
-        "g++";
+    compilerName = "g++";
+    compilerVersion = std::string(__VERSION__);
 #else
-        "undefined";
-#endif
-
-    std::string compilerVersion =
-#ifdef __clang__
-        std::string(__VERSION__);
-#elif __GNUC__
-        std::string(__VERSION__);
-#elif _MSC_VER
-        std::string(_MSC_FULL_VER);
-#else
-        "undefined";
+    compilerName = "undefined";
+    compilerVersion = "undefined";
 #endif
 
     std::cout << std::left << std::setw(25) << "Compiler name : " <<  std::setw(25) << compilerName << std::endl;

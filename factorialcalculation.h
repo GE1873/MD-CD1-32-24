@@ -4,9 +4,9 @@
 #include <iomanip>
 #include <iostream>
 
-/*!
- * \brief Calculate factorial of number 5 for float and integer using function templates and recursion
- */
+///
+/// \brief Calculate factorial of number 5 for float and integer using function templates and recursion
+///
 class FactorialCalculation
 {
 public:
