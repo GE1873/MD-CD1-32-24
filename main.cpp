@@ -3,9 +3,7 @@
 
 #include "multiplicationtable.h"
 #include "numbergame.h"
-#include <ctime>
 #include <iostream>
-//#include<cstdlib>
 
 int main()
 {
@@ -57,6 +55,7 @@ int main()
             std::cout << "Game over!" << std::endl;
             break;
         }
+
         std::cout << std::endl;
         std::cout << "Player " + player2 + " should choose the number (press \"Enter\")";
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -72,7 +71,6 @@ int main()
         }
 
         ng.decreaseStepCounter();
-
         if(ng.stepsCounter() > 0){
             std::cout << std::endl;
             std::cout << std::to_string(ng.stepsCounter()) + " steps left until the end of the game" << std::endl;

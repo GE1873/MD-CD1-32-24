@@ -56,14 +56,14 @@ int NumberGame::winningNumber() const
 
 int NumberGame::generatePosNum()
 {
-    srand((unsigned) time(NULL));
+    srand((unsigned) time(nullptr));
     int random = 0 + (rand() % 6);
     return random;
 }
 
 int NumberGame::generateNegNum()
 {
-    srand((unsigned) time(NULL));
+    srand((unsigned) time(nullptr));
     int random = -5 + (rand() % 5);
     return random;
 }

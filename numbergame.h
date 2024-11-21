@@ -9,24 +9,60 @@
 class NumberGame
 {
 public:
-    NumberGame(const std::string &player1, const std::string &player2, int winningNumber, unsigned stepsCounter);
+    ///
+    /// \brief Constructor with default parameters
+    ///
+    NumberGame(const std::string &player1 = {"Biba"}, const std::string &player2 = {"Boba"}, int winningNumber = 50, unsigned stepsCounter = 100);
 
-    NumberGame(std::string player1 = {"Biba"}, std::string player2 = {"Boba"}, int winningNumber = 50, unsigned stepsCounter = 100):
-        m_player1(player1),
-        m_player2(player2),
-        m_winningNumber(winningNumber),
-        m_stepsCounter(stepsCounter)
-    {}
-
+    ///
+    /// \brief Generates a random number for player 1, alternating positive and negative
+    ///
     void playingPlayer1();
-    void playingPlayer2();
+
+    ///
+    /// \brief Generates a random number for player 1, alternating positive and negative
+    ///
+    void playingPlayer2();    
+
+    ///
+    /// \brief Calculates sum of numbers
+    /// \param number - Randomly generated number for player 1 or 2
+    ///
     void workingReferee(int number);
+
+    ///
+    /// \brief Reduces the game step counter
+    ///
     void decreaseStepCounter();
 
+    ///
+    /// \brief Getter for player 1 number
+    /// \return
+    ///
     int numberOfPlayer1() const;
+
+    ///
+    /// \brief Getter for player 1 number
+    /// \return
+    ///
     int numberOfPlayer2() const;
+
+    ///
+    /// \brief Getter for game score
+    /// \return
+    ///
     int score() const;
+
+    ///
+    /// \brief Getter for step counter
+    /// \return
+    ///
     unsigned stepsCounter() const;
+
+    ///
+    /// \brief Getter for winning number
+    /// \return
+    ///
     int winningNumber() const;
 
 private:
@@ -39,7 +75,16 @@ private:
     int m_score {};
     unsigned m_stepsCounter {};
 
+    ///
+    /// \brief Random number generator for positive numbers and zero (0, 1 to 5)
+    /// \return
+    ///
     int generatePosNum();
+
+    ///
+    /// \brief Random number generator for negative numbers (-5 to -1)
+    /// \return
+    ///
     int generateNegNum();
 };
 
