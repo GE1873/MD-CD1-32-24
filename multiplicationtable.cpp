@@ -1,5 +1,4 @@
 #include "multiplicationtable.h"
-
 #include <iostream>
 #include <iomanip>
 
@@ -137,5 +136,4 @@ void MultiplicationTable::mtUsingDoWhile() const
         }
     }while(i < 10);
     std::cout << "-------------------------------------------------------" << std::endl;
-
 }
