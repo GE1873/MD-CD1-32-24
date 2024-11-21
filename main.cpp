@@ -74,6 +74,10 @@ int main()
         if(ng.stepsCounter() > 0){
             std::cout << std::endl;
             std::cout << std::to_string(ng.stepsCounter()) + " steps left until the end of the game" << std::endl;
+            std::cout << std::endl;
+            std::cout << "********************************************" << std::endl;
+            std::cout << "Next game round"<< std::endl;
+            std::cout << "********************************************" << std::endl;
         } else {
             std::cout << std::endl;
             std::cout << "The available number of steps is over!" << std::endl;
