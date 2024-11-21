@@ -65,7 +65,7 @@ int main()
         std::cout << "Total score in the game is : " + std::to_string(ng.score()) << std::endl;
         if(ng.score() > ng.winningNumber()) {
             std::cout << std::endl;
-            std::cout << "Player " + player1 + " won!" << std::endl;
+            std::cout << "Player " + player2 + " won!" << std::endl;
             std::cout << "Game over!" << std::endl;
             break;
         }
