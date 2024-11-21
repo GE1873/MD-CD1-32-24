@@ -12,6 +12,8 @@ add_executable(MD-CD1-32-24
     settings.h
     systeminfo.h
     systeminfo.cpp
+    multiplicationtable.h
+    multiplicationtable.cpp
 )
 
 install(TARGETS MD-CD1-32-24
