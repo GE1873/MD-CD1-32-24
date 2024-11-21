@@ -7,7 +7,7 @@ MultiplicationTable::MultiplicationTable()
 
 }
 
-void MultiplicationTable::mtUsingFor() const
+void MultiplicationTable::createMtUsingFor() const
 {
     std::cout << "-------------------------------------------------------" << std::endl;
     std::cout << std::left << std::setw(55)  << "Creating a multiplication table using a FOR loop" << std::setw(5) << "|" << std::endl;
@@ -44,7 +44,7 @@ void MultiplicationTable::mtUsingFor() const
     std::cout << "-------------------------------------------------------" << std::endl;
 }
 
-void MultiplicationTable::mtUsingWhile() const
+void MultiplicationTable::createMtUsingWhile() const
 {
     int i {0};
     int j {0};
@@ -94,7 +94,7 @@ void MultiplicationTable::mtUsingWhile() const
     std::cout << "-------------------------------------------------------" << std::endl;
 }
 
-void MultiplicationTable::mtUsingDoWhile() const
+void MultiplicationTable::createMtUsingDoWhile() const
 {
     int i {0};
     int j {0};

@@ -12,17 +12,17 @@ public:
     ///
     /// \brief Creating a multiplication table using a FOR loop
     ///
-    void mtUsingFor() const;
+    void createMtUsingFor() const;
 
     ///
     /// \brief Creating a multiplication table using a WHILE loop
     ///
-    void mtUsingWhile() const;
+    void createMtUsingWhile() const;
 
     ///
     /// \brief Creating a multiplication table using a DO-WHILE loop
     ///
-    void mtUsingDoWhile() const;
+    void createMtUsingDoWhile() const;
 };
 
 #endif // MULTIPLICATIONTABLE_H

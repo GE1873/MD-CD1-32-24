@@ -20,9 +20,9 @@ int main()
 
     MultiplicationTable mt;
 
-    mt.mtUsingFor();
-    mt.mtUsingWhile();
-    mt.mtUsingDoWhile();
+    mt.createMtUsingFor();
+    mt.createMtUsingWhile();
+    mt.createMtUsingDoWhile();
 
     std::cout << std::endl;
     std::cout << "********************************************" << std::endl;
@@ -45,9 +45,9 @@ int main()
         std::cout << std::endl;
         std::cout << "Player " + player1 + " should choose the number (press \"Enter\")";
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        ng.playingPlayer1();
+        ng.playPlayer1();
         std::cout << "Player " + player1 + " has chosen a number : " + std::to_string(ng.numberOfPlayer1()) << std::endl;
-        ng.workingReferee(ng.numberOfPlayer1());
+        ng.workReferee(ng.numberOfPlayer1());
         std::cout << "Total score in the game is : " + std::to_string(ng.score()) << std::endl;
         if(ng.score() > ng.winningNumber()) {
             std::cout << std::endl;
@@ -59,9 +59,9 @@ int main()
         std::cout << std::endl;
         std::cout << "Player " + player2 + " should choose the number (press \"Enter\")";
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        ng.playingPlayer2();
+        ng.playPlayer2();
         std::cout << "Player " + player2 + " has chosen a number : " + std::to_string(ng.numberOfPlayer2()) << std::endl;
-        ng.workingReferee(ng.numberOfPlayer2());
+        ng.workReferee(ng.numberOfPlayer2());
         std::cout << "Total score in the game is : " + std::to_string(ng.score()) << std::endl;
         if(ng.score() > ng.winningNumber()) {
             std::cout << std::endl;

@@ -17,18 +17,18 @@ public:
     ///
     /// \brief Generates a random number for player 1, alternating positive and negative
     ///
-    void playingPlayer1();
+    void playPlayer1();
 
     ///
     /// \brief Generates a random number for player 1, alternating positive and negative
     ///
-    void playingPlayer2();    
+    void playPlayer2();
 
     ///
     /// \brief Calculates sum of numbers
     /// \param number - Randomly generated number for player 1 or 2
     ///
-    void workingReferee(int number);
+    void workReferee(int number);
 
     ///
     /// \brief Reduces the game step counter

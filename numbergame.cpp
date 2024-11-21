@@ -8,17 +8,17 @@ NumberGame::NumberGame(const std::string &player1, const std::string &player2, i
     m_stepsCounter(stepsCounter)
 {}
 
-void NumberGame::playingPlayer1()
+void NumberGame::playPlayer1()
 {
     m_numberOfPlayer1 = m_numberOfPlayer1 >= 0 ? generateNegNum() : generatePosNum();
 }
 
-void NumberGame::playingPlayer2()
+void NumberGame::playPlayer2()
 {
     m_numberOfPlayer2 = m_numberOfPlayer2 >= 0 ? generateNegNum() : generatePosNum();
 }
 
-void NumberGame::workingReferee(int number)
+void NumberGame::workReferee(int number)
 {
     m_score = m_score + number;
 }
