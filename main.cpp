@@ -19,6 +19,7 @@ int main()
 MultiplicationTable mt;
 
 mt.mtUsingFor();
+mt.mtUsingWhile();
 
     return 0;
 }
