@@ -3,7 +3,9 @@
 
 #include "multiplicationtable.h"
 #include "numbergame.h"
+#include <ctime>
 #include <iostream>
+//#include<cstdlib>
 
 int main()
 {
@@ -24,11 +26,15 @@ int main()
     mt.mtUsingWhile();
     mt.mtUsingDoWhile();
 
-    std::cout << "********** Let's play a game! *********" << std::endl;
+    std::cout << std::endl;
+    std::cout << "********************************************" << std::endl;
+    std::cout << "********** Now, let's play a game! *********" << std::endl;
+    std::cout << "********************************************" << std::endl;
 
     std::string player1 {};
     std::string player2 {};
 
+    std::cout << std::endl;
     std::cout << "Please, enter the first player's name : ";
     std::getline (std::cin, player1);
 
@@ -38,30 +44,45 @@ int main()
     NumberGame ng(player1, player2);
 
     while(true){
+        std::cout << std::endl;
         std::cout << "Player " + player1 + " should choose the number (press \"Enter\")";
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         ng.playingPlayer1();
         std::cout << "Player " + player1 + " has chosen a number : " + std::to_string(ng.numberOfPlayer1()) << std::endl;
-        ng.workingReferee();
+        ng.workingReferee(ng.numberOfPlayer1());
         std::cout << "Total score in the game is : " + std::to_string(ng.score()) << std::endl;
-        if(ng.score() > 50) {
+        if(ng.score() > ng.winningNumber()) {
+            std::cout << std::endl;
             std::cout << "Player " + player1 + " won!" << std::endl;
+            std::cout << "Game over!" << std::endl;
             break;
         }
-
+        std::cout << std::endl;
         std::cout << "Player " + player2 + " should choose the number (press \"Enter\")";
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         ng.playingPlayer2();
         std::cout << "Player " + player2 + " has chosen a number : " + std::to_string(ng.numberOfPlayer2()) << std::endl;
-        ng.workingReferee();
+        ng.workingReferee(ng.numberOfPlayer2());
         std::cout << "Total score in the game is : " + std::to_string(ng.score()) << std::endl;
-        if(ng.score() > 50) {
+        if(ng.score() > ng.winningNumber()) {
+            std::cout << std::endl;
             std::cout << "Player " + player1 + " won!" << std::endl;
+            std::cout << "Game over!" << std::endl;
+            break;
+        }
+
+        ng.decreaseStepCounter();
+
+        if(ng.stepsCounter() > 0){
+            std::cout << std::endl;
+            std::cout << std::to_string(ng.stepsCounter()) + " steps left until the end of the game" << std::endl;
+        } else {
+            std::cout << std::endl;
+            std::cout << "The available number of steps is over!" << std::endl;
+            std::cout << "Game result - draw!" << std::endl;
+            std::cout << "Please, start the new game" << std::endl;
             break;
         }
     }
-    std::cout << "Game over!" << std::endl;
-
-
     return 0;
 }
