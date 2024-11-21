@@ -1,9 +1,18 @@
-#include <iostream>
-
-using namespace std;
+#include "factorialcalculation.h"
+#include "systeminfo.h"
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    FactorialCalculation fc;
+    SystemInfo si;
+
+    std::cout << "********************************************************************************" << std::endl;
+    fc.calculateFactorial();
+    std::cout << "********************************************************************************" << std::endl;
+    si.getOSInfo();
+    std::cout << "********************************************************************************" << std::endl;
+    si.getCompilerInfo();
+    std::cout << "********************************************************************************" << std::endl;
+
     return 0;
 }
