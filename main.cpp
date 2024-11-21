@@ -39,7 +39,7 @@ int main()
     std::cout << "Please, enter the second player's name : ";
     std::getline (std::cin, player2);
 
-    NumberGame ng(player1, player2);
+    NumberGame ng(player1, player2, 50, 100);
 
     while(true){
         std::cout << std::endl;

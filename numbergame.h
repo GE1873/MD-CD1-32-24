@@ -12,7 +12,7 @@ public:
     ///
     /// \brief Constructor with default parameters
     ///
-    NumberGame(const std::string &player1 = {"Biba"}, const std::string &player2 = {"Boba"}, int winningNumber = 50, unsigned stepsCounter = 100);
+    NumberGame(const std::string &player1, const std::string &player2, int winningNumber, unsigned stepsCounter);
 
     ///
     /// \brief Generates a random number for player 1, alternating positive and negative
@@ -76,7 +76,7 @@ private:
     unsigned m_stepsCounter {};
 
     ///
-    /// \brief Random number generator for positive numbers and zero (0, 1 to 5)
+    /// \brief Random number generator for positive numbers (and zero) (0 to 5)
     /// \return
     ///
     int generatePosNum();
