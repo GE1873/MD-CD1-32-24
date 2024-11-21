@@ -20,6 +20,7 @@ MultiplicationTable mt;
 
 mt.mtUsingFor();
 mt.mtUsingWhile();
+mt.mtUsingDoWhile();
 
     return 0;
 }
