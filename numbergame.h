@@ -8,10 +8,7 @@
 ///
 class NumberGame
 {
-public:
-    ///
-    /// \brief Constructor with default parameters
-    ///
+public:    
     NumberGame(const std::string &player1, const std::string &player2, int winningNumber, unsigned stepsCounter);
 
     ///
