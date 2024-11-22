@@ -3,6 +3,7 @@
 
 #include "multiplicationtable.h"
 #include "numbergame.h"
+#include <ctime>
 #include <iostream>
 
 int main()
@@ -28,6 +29,8 @@ int main()
     std::cout << "********************************************" << std::endl;
     std::cout << "********** Now, let's play a game! *********" << std::endl;
     std::cout << "********************************************" << std::endl;
+
+    std::srand(std::time(0));
 
     std::string player1 {};
     std::string player2 {};

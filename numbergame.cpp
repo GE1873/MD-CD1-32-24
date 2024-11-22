@@ -1,5 +1,4 @@
 #include "numbergame.h"
-#include <ctime>
 
 NumberGame::NumberGame(const std::string &player1, const std::string &player2, int winningNumber, unsigned stepsCounter):
     m_player1(player1),
@@ -57,14 +56,10 @@ int NumberGame::winningNumber() const
 
 int NumberGame::generatePosNum()
 {
-    srand((unsigned) time(nullptr));
-    int random = 0 + (rand() % 6);
-    return random;
+    return 0 + (rand() % 6);
 }
 
 int NumberGame::generateNegNum()
-{
-    srand((unsigned) time(nullptr));
-    int random = -5 + (rand() % 5);
-    return random;
+{    
+    return -5 + (rand() % 5);
 }
