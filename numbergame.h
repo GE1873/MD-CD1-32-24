@@ -68,12 +68,12 @@ public:
 private:
     std::string m_player1;
     std::string m_player2;
-    unsigned int m_winningNumber;    
+    unsigned int m_winningNumber;
+    unsigned m_stepsCounter;
 
     int m_numberOfPlayer1 {};
     int m_numberOfPlayer2 {};
-    int m_score {};
-    unsigned m_stepsCounter {};
+    int m_score {};    
 
     ///
     /// \brief Random number generator for positive numbers (and zero) (0 to 5)
