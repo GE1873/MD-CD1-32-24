@@ -68,7 +68,7 @@ public:
 private:
     std::string m_player1;
     std::string m_player2;
-    unsigned int m_winningNumber;
+    int m_winningNumber;
     unsigned m_stepsCounter;
 
     int m_numberOfPlayer1 {};
