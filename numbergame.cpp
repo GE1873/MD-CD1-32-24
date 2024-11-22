@@ -60,6 +60,6 @@ int NumberGame::generatePosNum()
 }
 
 int NumberGame::generateNegNum()
-{    
-    return -5 + (rand() % 5);
+{
+    return -5 + (rand() % 6);
 }

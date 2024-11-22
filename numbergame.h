@@ -68,8 +68,8 @@ private:
     int m_winningNumber;
     unsigned m_stepsCounter;
 
-    int m_numberOfPlayer1 {};
-    int m_numberOfPlayer2 {};
+    int m_numberOfPlayer1 {-5 + (rand() % 11)};
+    int m_numberOfPlayer2 {-5 + (rand() % 11)};
     int m_score {};    
 
     ///
@@ -79,7 +79,7 @@ private:
     int generatePosNum();
 
     ///
-    /// \brief Random number generator for negative numbers (-5 to -1)
+    /// \brief Random number generator for negative numbers (and zero) (-5 to 0)
     /// \return
     ///
     int generateNegNum();
