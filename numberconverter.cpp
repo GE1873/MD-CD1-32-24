@@ -12,7 +12,7 @@ NumberConverter::OperationResult NumberConverter::checkNumber(int num)
 {
     return OperationResult{
         (num % 2 == 0) && (num > 0) ? num << 2 : num >> 2,
-        (num % 2 == 0) && (num > 0) ? NUMBER_STATE::EVEN_AND_POS : NUMBER_STATE::NOT_EVEN_OR_NOT_POS
+        (num % 2 == 0) && (num > 0) ? NUMBER_STATE::EVEN_AND_POS : NUMBER_STATE::ODD_OR_NEG
     };
 
 }
@@ -27,9 +27,9 @@ std::string NumberConverter::convertEnum(NUMBER_STATE numState)
         res = "EVEN_AND_POS";
         break;
     }
-    case NUMBER_STATE::NOT_EVEN_OR_NOT_POS:
+    case NUMBER_STATE::ODD_OR_NEG:
     {
-        res = "NOT_EVEN_OR_NOT_POS";
+        res = "ODD_OR_NEG";
         break;
     }
     case NUMBER_STATE::UNKNOWN:
