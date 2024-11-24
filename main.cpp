@@ -12,6 +12,22 @@ int main()
     return 0;
 
     ///
+    /// \brief Module 2 : Calculation factorial of number 5 and getting system information
+    ///
+    FactorialCalculation fc;
+    SystemInfo si;
+
+    std::cout << "********************************************************************************" << std::endl;
+    fc.calculateFactorial();
+    std::cout << "********************************************************************************" << std::endl;
+    si.getOSInfo();
+    std::cout << "********************************************************************************" << std::endl;
+    si.getCompilerInfo();
+    std::cout << "********************************************************************************" << std::endl;
+    ///
+    ///
+
+    ///
     /// \brief Module 3 : Made creation of multiplication tables and number game
     ///
     MultiplicationTable mt;
@@ -85,21 +101,5 @@ int main()
         }
     }
     ///
-    ///
-
-    ///
-    /// \brief Module 2 : Calculation factorial of number 5 and getting system information
-    ///
-    FactorialCalculation fc;
-    SystemInfo si;
-
-    std::cout << "********************************************************************************" << std::endl;
-    fc.calculateFactorial();
-    std::cout << "********************************************************************************" << std::endl;
-    si.getOSInfo();
-    std::cout << "********************************************************************************" << std::endl;
-    si.getCompilerInfo();
-    std::cout << "********************************************************************************" << std::endl;
-    ///
-    ///
+    ///    
 }
