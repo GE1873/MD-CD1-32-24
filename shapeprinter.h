@@ -1,8 +1,12 @@
 #ifndef SHAPEPRINTER_H
 #define SHAPEPRINTER_H
 
-namespace Shapes {
+#include <string>
 
+namespace Shapes {
+///
+/// \brief Checking and printing entered shape
+///
 class ShapePrinter
 {
 public:
@@ -15,11 +19,33 @@ public:
         TRIANGLE = 300
     };
 
+    ///
+    /// \brief Prints the entered shape
+    /// \param shape
+    ///
     void printShape(SHAPES shape);
+
+    ///
+    /// \brief Checks the entered string (shape)
+    /// \param shape
+    ///
+    void checkShape(std::string shape);
+
+    ///
+    /// \brief Getter for shape
+    /// \return
+    ///
+    SHAPES shape() const;
+
+private:
+    SHAPES m_shape {};
+
+    ///
+    /// \brief Sets the additional shape variable
+    /// \param shape
+    ///
+    void setShape(std::string shape);
 };
-
 }
-
-
 
 #endif // SHAPEPRINTER_H
