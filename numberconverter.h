@@ -12,7 +12,7 @@ public:
     enum class NUMBER_STATE {
         UNKNOWN = -1,
         EVEN_AND_POS = 100,
-        NOT_EVEN_OR_NOT_POS = 200
+        ODD_OR_NEG = 200
     };
 
 private:
