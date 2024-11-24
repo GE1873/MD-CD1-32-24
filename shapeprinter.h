@@ -29,7 +29,7 @@ public:
     /// \brief Checks the entered string (shape)
     /// \param shape
     ///
-    void checkShape(std::string shape);
+    void checkShape(const std::string &shape);
 
     ///
     /// \brief Getter for shape
@@ -44,7 +44,7 @@ private:
     /// \brief Sets the additional shape variable
     /// \param shape
     ///
-    void setShape(std::string shape);
+    void setShape(const std::string &shape);
 };
 }
 

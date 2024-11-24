@@ -37,12 +37,12 @@ void Shapes::ShapePrinter::printShape(SHAPES shape)
     std::cout << std::left << std::setw(15)  << "Current shape is : " << _shape << std::endl;
 }
 
-void Shapes::ShapePrinter::checkShape(std::string shape)
+void Shapes::ShapePrinter::checkShape(const std::string &shape)
 {
     shape == "circle" || shape == "square" || shape == "triangle" ? setShape(shape) : setShape("unknown");
 }
 
-void Shapes::ShapePrinter::setShape(std::string shape)
+void Shapes::ShapePrinter::setShape(const std::string &shape)
 {
     if(shape == "circle") {
         m_shape = SHAPES::CIRCLE;
