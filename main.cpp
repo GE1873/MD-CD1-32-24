@@ -1,24 +1,71 @@
-//#include "factorialcalculation.h"
-//#include "systeminfo.h"
+#include "factorialcalculation.h"
+#include "shapeprinter.h"
+#include "systeminfo.h"
 
 #include "multiplicationtable.h"
 #include "numbergame.h"
+
 #include <ctime>
 #include <iostream>
 
 int main()
 {
-    //    FactorialCalculation fc;
-    //    SystemInfo si;
+    ///
+    /// \brief Module 5 : Checking and printing entered shape
+    ///
+    std::cout << "********************************************************************************" << std::endl;
+    std::cout << "****************************** 1st part of the task ****************************" << std::endl;
+    std::cout << "********************************************************************************" << std::endl;
 
-    //    std::cout << "********************************************************************************" << std::endl;
-    //    fc.calculateFactorial();
-    //    std::cout << "********************************************************************************" << std::endl;
-    //    si.getOSInfo();
-    //    std::cout << "********************************************************************************" << std::endl;
-    //    si.getCompilerInfo();
-    //    std::cout << "********************************************************************************" << std::endl;
+    Shapes::ShapePrinter sp;
+    Shapes::ShapePrinter::SHAPES shape {};
 
+    shape = Shapes::ShapePrinter::SHAPES::CIRCLE;
+    sp.printShape(shape);
+
+    shape = Shapes::ShapePrinter::SHAPES::SQUARE;
+    sp.printShape(shape);
+
+    shape = Shapes::ShapePrinter::SHAPES::TRIANGLE;
+    sp.printShape(shape);
+
+    std::cout << "********************************************************************************" << std::endl;
+    std::cout << "****************************** 2nd part of the task ****************************" << std::endl;
+    std::cout << "********************************************************************************" << std::endl;
+
+    std::string shapeName {};
+
+    std::cout << "Please, enter the shape name : ";
+    std::getline (std::cin, shapeName);
+
+    sp.checkShape(shapeName);
+    sp.printShape(sp.shape());
+
+    std::cout << "********************************************************************************" << std::endl;
+    ///
+    ///
+
+    return 0;
+
+    ///
+    /// \brief Module 2 : Calculation factorial of number 5 and getting system information
+    ///
+    FactorialCalculation fc;
+    SystemInfo si;
+
+    std::cout << "********************************************************************************" << std::endl;
+    fc.calculateFactorial();
+    std::cout << "********************************************************************************" << std::endl;
+    si.getOSInfo();
+    std::cout << "********************************************************************************" << std::endl;
+    si.getCompilerInfo();
+    std::cout << "********************************************************************************" << std::endl;
+    ///
+    ///
+
+    ///
+    /// \brief Module 3 : Made creation of multiplication tables and number game
+    ///
     MultiplicationTable mt;
 
     mt.createMtUsingFor();
@@ -42,7 +89,7 @@ int main()
     std::cout << "Please, enter the second player's name : ";
     std::getline (std::cin, player2);
 
-    NumberGame ng(player1, player2, 50, 100);
+    NumberGame ng(player1, player2, 10, 25);
 
     while(true){
         std::cout << std::endl;
@@ -89,5 +136,6 @@ int main()
             break;
         }
     }
-    return 0;
+    ///
+    ///    
 }
