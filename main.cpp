@@ -10,13 +10,15 @@
 
 int main()
 {
+    ///
+    /// \brief Module 5 : Checking and printing entered shape
+    ///
     std::cout << "********************************************************************************" << std::endl;
     std::cout << "****************************** 1st part of the task ****************************" << std::endl;
     std::cout << "********************************************************************************" << std::endl;
 
     Shapes::ShapePrinter sp;
     Shapes::ShapePrinter::SHAPES shape {};
-    std::string shapeName {};
 
     shape = Shapes::ShapePrinter::SHAPES::CIRCLE;
     sp.printShape(shape);
@@ -31,6 +33,8 @@ int main()
     std::cout << "****************************** 2nd part of the task ****************************" << std::endl;
     std::cout << "********************************************************************************" << std::endl;
 
+    std::string shapeName {};
+
     std::cout << "Please, enter the shape name : ";
     std::getline (std::cin, shapeName);
 
@@ -38,6 +42,8 @@ int main()
     sp.printShape(sp.shape());
 
     std::cout << "********************************************************************************" << std::endl;
+    ///
+    ///
 
     return 0;
 
