@@ -1,4 +1,5 @@
 #include "factorialcalculation.h"
+#include "shapeprinter.h"
 #include "systeminfo.h"
 
 #include "multiplicationtable.h"
@@ -9,6 +10,13 @@
 
 int main()
 {
+    Shapes::ShapePrinter sp;
+    Shapes::ShapePrinter::SHAPES shape {};
+
+    shape = Shapes::ShapePrinter::SHAPES::CIRCLE;
+
+    sp.printShape(shape);
+
     return 0;
 
     ///

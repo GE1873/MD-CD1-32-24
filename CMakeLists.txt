@@ -12,10 +12,12 @@ add_executable(MD-CD1-32-24
     settings.h
     systeminfo.h
     systeminfo.cpp
-	multiplicationtable.cpp
-	multiplicationtable.h
-	numbergame.cpp
-	numbergame.h
+    multiplicationtable.h
+    multiplicationtable.cpp
+    numbergame.h
+    numbergame.cpp
+    shapeprinter.h
+    shapeprinter.cpp
 )
 
 install(TARGETS MD-CD1-32-24
