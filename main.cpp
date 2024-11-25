@@ -1,9 +1,12 @@
 #include "factorialcalculation.h"
-#include "shapeprinter.h"
 #include "systeminfo.h"
 
 #include "multiplicationtable.h"
 #include "numbergame.h"
+
+#include "numberconverter.h"
+
+#include "shapeprinter.h"
 
 #include <ctime>
 #include <iostream>
@@ -42,6 +45,27 @@ int main()
     sp.printShape(sp.shape());
 
     std::cout << "********************************************************************************" << std::endl;
+    ///
+    ///
+
+    /// 
+    /// \brief Module 4 : Checking and converting number
+    ///
+    NumberConverter na;
+    std::srand(std::time(0));
+
+    int numberToCheck {};
+    int convertedNum {};
+    NumberConverter::NUMBER_STATE state {};
+
+    for(int i {}; i < 50; i++){
+        numberToCheck = -100 + (rand() % 201);
+        const auto [convertedNum, state] = na.checkNumber(numberToCheck);
+        std::cout << std::left << std::setw(25) << "Number to check : " + std::to_string(numberToCheck) << std::setw(5) << "|"
+                  << std::setw(40) << "Operation result : " + na.convertEnum(state) << std::setw(5) << "|"
+                  <<  "Converted number : " + std::to_string(convertedNum);
+        std::cout << std::endl;
+    }
     ///
     ///
 
