@@ -42,7 +42,7 @@ void Shapes::ShapePrinter::checkShape(const std::string &shape)
     shape == "circle" || shape == "square" || shape == "triangle" ? setShape(shape) : setShape("unknown");
 }
 
-void Shapes::ShapePrinter::setShape(const std::string &shape)
+void Shapes::ShapePrinter::setShape(const std::string_view &shape)
 {
     if(shape == "circle") {
         m_shape = SHAPES::CIRCLE;

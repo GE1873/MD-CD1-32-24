@@ -44,7 +44,7 @@ private:
     /// \brief Sets the additional shape variable
     /// \param shape
     ///
-    void setShape(const std::string &shape);
+    void setShape(const std::string_view &shape);
 };
 }
 
