@@ -1,24 +1,58 @@
-//#include "factorialcalculation.h"
-//#include "systeminfo.h"
+#include "factorialcalculation.h"
+#include "systeminfo.h"
 
 #include "multiplicationtable.h"
 #include "numbergame.h"
+
+#include "numberconverter.h"
+
 #include <ctime>
 #include <iostream>
 
 int main()
 {
-    //    FactorialCalculation fc;
-    //    SystemInfo si;
+    ///
+    /// \brief Module 4 : Checking and converting number
+    ///
+    NumberConverter na;
+    std::srand(std::time(0));
 
-    //    std::cout << "********************************************************************************" << std::endl;
-    //    fc.calculateFactorial();
-    //    std::cout << "********************************************************************************" << std::endl;
-    //    si.getOSInfo();
-    //    std::cout << "********************************************************************************" << std::endl;
-    //    si.getCompilerInfo();
-    //    std::cout << "********************************************************************************" << std::endl;
+    int numberToCheck {};
+    int convertedNum {};
+    NumberConverter::NUMBER_STATE state {};
 
+    for(int i {}; i < 50; i++){
+        numberToCheck = -100 + (rand() % 201);
+        const auto [convertedNum, state] = na.checkNumber(numberToCheck);
+        std::cout << std::left << std::setw(25) << "Number to check : " + std::to_string(numberToCheck) << std::setw(5) << "|"
+                  << std::setw(40) << "Operation result : " + na.convertEnum(state) << std::setw(5) << "|"
+                  <<  "Converted number : " + std::to_string(convertedNum);
+        std::cout << std::endl;
+    }
+    ///
+    ///
+
+    return 0;
+
+    ///
+    /// \brief Module 2 : Calculation factorial of number 5 and getting system information
+    ///
+    FactorialCalculation fc;
+    SystemInfo si;
+
+    std::cout << "********************************************************************************" << std::endl;
+    fc.calculateFactorial();
+    std::cout << "********************************************************************************" << std::endl;
+    si.getOSInfo();
+    std::cout << "********************************************************************************" << std::endl;
+    si.getCompilerInfo();
+    std::cout << "********************************************************************************" << std::endl;
+    ///
+    ///
+
+    ///
+    /// \brief Module 3 : Made creation of multiplication tables and number game
+    ///
     MultiplicationTable mt;
 
     mt.createMtUsingFor();
@@ -42,7 +76,7 @@ int main()
     std::cout << "Please, enter the second player's name : ";
     std::getline (std::cin, player2);
 
-    NumberGame ng(player1, player2, 50, 100);
+    NumberGame ng(player1, player2, 10, 25);
 
     while(true){
         std::cout << std::endl;
@@ -89,5 +123,6 @@ int main()
             break;
         }
     }
-    return 0;
+    ///
+    ///    
 }

@@ -11,11 +11,13 @@ add_executable(MD-CD1-32-24
     factorialcalculation.cpp
     settings.h
     systeminfo.h
-    systeminfo.cpp
-	multiplicationtable.cpp
-	multiplicationtable.h
-	numbergame.cpp
-	numbergame.h
+    systeminfo.cpp    
+    multiplicationtable.h
+    multiplicationtable.cpp
+    numbergame.h
+    numbergame.cpp
+    numberconverter.h
+    numberconverter.cpp
 )
 
 install(TARGETS MD-CD1-32-24
