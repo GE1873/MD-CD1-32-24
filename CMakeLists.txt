@@ -20,6 +20,14 @@ add_executable(MD-CD1-32-24
     shapeprinter.cpp
     numberconverter.h
     numberconverter.cpp
+    stringreverser.h
+    stringreverser.cpp
+    matrixcreator.h
+    matrixcreator.cpp
+    vectorsorter.h
+    vectorsorter.cpp
+    arrayanalyzer.h
+    arrayanalyzer.cpp
 )
 
 install(TARGETS MD-CD1-32-24
