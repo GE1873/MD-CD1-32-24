@@ -21,7 +21,7 @@ void VectorSorter::createAndPrintVector()
     int start {1};
     int end {100};
     std::srand(std::time(0));
-    for (int i {}; i < size; i++) {
+    for (size_t i {}; i < size; ++i) {
         int randNum = start + rand() % (end - start + 1);
         v.push_back(randNum);
     }

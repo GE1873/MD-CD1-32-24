@@ -18,7 +18,7 @@ void ArrayAnalyzer::createAndAnalizeArray()
     std::string str {};
     auto parr = std::make_unique<int[]>(size);
     std::cout << "Please, enter the first number : ";
-    for(int i {}; i < size; ++i){
+    for(size_t i {}; i < size; ++i){
         std::getline (std::cin, str);
         try {
             parr[i] = std::stoi(str);
@@ -31,14 +31,14 @@ void ArrayAnalyzer::createAndAnalizeArray()
     }
     std::cout << "------------------------------------------------------" << std::endl;
     std::cout << "Array contents : ";
-    for(int i {}; i < size; ++i){
+    for(size_t i {}; i < size; ++i){
         std::cout << parr[i] << " ";
     }
     std::cout << std::endl;
-    int max_num = *std::max_element(parr.get(), parr.get() + size);
-    int min_num = *std::min_element(parr.get(), parr.get() + size);
+    int maxNum = *std::max_element(parr.get(), parr.get() + size);
+    int minNum = *std::min_element(parr.get(), parr.get() + size);
     std::cout << "------------------------------------------------------" << std::endl;
-    std::cout << "Maximum number in array is : " << max_num << std::endl;
-    std::cout << "Minimum number in array is : " << min_num << std::endl;
+    std::cout << "Maximum number in array is : " << maxNum << std::endl;
+    std::cout << "Minimum number in array is : " << minNum << std::endl;
     std::cout << "------------------------------------------------------" << std::endl;
 }
