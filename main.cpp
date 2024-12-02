@@ -5,8 +5,12 @@
 #include "numbergame.h"
 
 #include "numberconverter.h"
-
 #include "shapeprinter.h"
+
+#include "stringreverser.h"
+#include "matrixcreator.h"
+#include "vectorsorter.h"
+#include "arrayanalyzer.h"
 
 #include <ctime>
 #include <iostream>
@@ -14,58 +18,17 @@
 int main()
 {
     ///
-    /// \brief Module 5 : Checking and printing entered shape
+    /// \brief Module 6 : Reverse the entered string, create matrix 3X3, vector sorting, array analyzing
     ///
-    std::cout << "********************************************************************************" << std::endl;
-    std::cout << "****************************** 1st part of the task ****************************" << std::endl;
-    std::cout << "********************************************************************************" << std::endl;
+    StringReverser r;
+    MatrixCreator mm;
+    VectorSorter vm;
+    ArrayAnalyzer spm;
 
-    Shapes::ShapePrinter sp;
-    Shapes::ShapePrinter::SHAPES shape {};
-
-    shape = Shapes::ShapePrinter::SHAPES::CIRCLE;
-    sp.printShape(shape);
-
-    shape = Shapes::ShapePrinter::SHAPES::SQUARE;
-    sp.printShape(shape);
-
-    shape = Shapes::ShapePrinter::SHAPES::TRIANGLE;
-    sp.printShape(shape);
-
-    std::cout << "********************************************************************************" << std::endl;
-    std::cout << "****************************** 2nd part of the task ****************************" << std::endl;
-    std::cout << "********************************************************************************" << std::endl;
-
-    std::string shapeName {};
-
-    std::cout << "Please, enter the shape name : ";
-    std::getline (std::cin, shapeName);
-
-    sp.checkShape(shapeName);
-    sp.printShape(sp.shape());
-
-    std::cout << "********************************************************************************" << std::endl;
-    ///
-    ///
-
-    /// 
-    /// \brief Module 4 : Checking and converting number
-    ///
-    NumberConverter na;
-    std::srand(std::time(0));
-
-    int numberToCheck {};
-    int convertedNum {};
-    NumberConverter::NUMBER_STATE state {};
-
-    for(int i {}; i < 50; i++){
-        numberToCheck = -100 + (rand() % 201);
-        const auto [convertedNum, state] = na.checkNumber(numberToCheck);
-        std::cout << std::left << std::setw(25) << "Number to check : " + std::to_string(numberToCheck) << std::setw(5) << "|"
-                  << std::setw(40) << "Operation result : " + na.convertEnum(state) << std::setw(5) << "|"
-                  <<  "Converted number : " + std::to_string(convertedNum);
-        std::cout << std::endl;
-    }
+    r.reverseAndPrintEnteredString();
+    mm.createAndPrintMatrix();
+    vm.createAndPrintVector();
+    spm.createAndAnalizeArray();
     ///
     ///
 
@@ -161,5 +124,61 @@ int main()
         }
     }
     ///
-    ///    
+    ///
+
+    ///
+    /// \brief Module 4 : Checking and converting number
+    ///
+    NumberConverter na;
+    std::srand(std::time(0));
+
+    int numberToCheck {};
+    int convertedNum {};
+    NumberConverter::NUMBER_STATE state {};
+
+    for(int i {}; i < 50; i++){
+        numberToCheck = -100 + (rand() % 201);
+        const auto [convertedNum, state] = na.checkNumber(numberToCheck);
+        std::cout << std::left << std::setw(25) << "Number to check : " + std::to_string(numberToCheck) << std::setw(5) << "|"
+                  << std::setw(40) << "Operation result : " + na.convertEnum(state) << std::setw(5) << "|"
+                  <<  "Converted number : " + std::to_string(convertedNum);
+        std::cout << std::endl;
+    }
+    ///
+    ///
+
+    ///
+    /// \brief Module 5 : Checking and printing entered shape
+    ///
+    std::cout << "********************************************************************************" << std::endl;
+    std::cout << "****************************** 1st part of the task ****************************" << std::endl;
+    std::cout << "********************************************************************************" << std::endl;
+
+    Shapes::ShapePrinter sp;
+    Shapes::ShapePrinter::SHAPES shape {};
+
+    shape = Shapes::ShapePrinter::SHAPES::CIRCLE;
+    sp.printShape(shape);
+
+    shape = Shapes::ShapePrinter::SHAPES::SQUARE;
+    sp.printShape(shape);
+
+    shape = Shapes::ShapePrinter::SHAPES::TRIANGLE;
+    sp.printShape(shape);
+
+    std::cout << "********************************************************************************" << std::endl;
+    std::cout << "****************************** 2nd part of the task ****************************" << std::endl;
+    std::cout << "********************************************************************************" << std::endl;
+
+    std::string shapeName {};
+
+    std::cout << "Please, enter the shape name : ";
+    std::getline (std::cin, shapeName);
+
+    sp.checkShape(shapeName);
+    sp.printShape(sp.shape());
+
+    std::cout << "********************************************************************************" << std::endl;
+    ///
+    ///
 }
