@@ -1,4 +1,4 @@
-#include "matrixcreator.h"
+#include "../inc/matrixcreator.h"
 #include <iomanip>
 #include <iostream>
 #include <ostream>

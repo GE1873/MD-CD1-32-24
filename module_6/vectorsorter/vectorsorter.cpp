@@ -1,4 +1,4 @@
-#include "vectorsorter.h"
+#include "../inc/vectorsorter.h"
 #include <cstdlib>
 #include <ctime>
 #include <vector>
