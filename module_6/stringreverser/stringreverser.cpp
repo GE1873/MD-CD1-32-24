@@ -1,4 +1,4 @@
-#include "stringreverser.h"
+#include "../inc/stringreverser.h"
 
 #include <algorithm>
 #include <iostream>
