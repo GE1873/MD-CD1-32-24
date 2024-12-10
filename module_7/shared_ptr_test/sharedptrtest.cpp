@@ -7,31 +7,57 @@ SharedPtrTest::SharedPtrTest()
     
 }
 
-void SharedPtrTest::createArray()
+void SharedPtrTest::runTest()
+{
+    std::weak_ptr<int[]> wptr {m_pArr};
+    populateArray();
+    printArray(wptr);
+    sumArray(wptr);
+    const auto [minNum, maxNum] = getMinMaxNum(wptr);    
+    std::cout << "------------------------------------------------------" << std::endl;
+    std::cout << "Maximum number in array is : " << maxNum << std::endl;
+    std::cout << "Minimum number in array is : " << minNum << std::endl;
+    std::cout << "------------------------------------------------------" << std::endl;
+}
+
+void SharedPtrTest::populateArray() const
 {
     std::string str {};
     std::cout << "Please, enter the first number : ";
     for(size_t i {}; i < m_size; ++i){
         std::getline (std::cin, str);
         try {
-            m_parr[i] = std::stoi(str);
+            m_pArr[i] = std::stoi(str);
             if(i < m_size - 1) std::cout << "Please, enter the next number : ";
-        } catch (std::invalid_argument &e) {
+        }
+        catch (const std::invalid_argument& e)
+        {
             std::cout<< "Invalid number! : " << str << std::endl;
             --i;
             std::cout << "Please, try to enter the number again : ";
         }
-    }
+        catch (const std::out_of_range& e)
+        {
+            std::cout<< "The number is out of range! : " << str << std::endl;
+            --i;
+            std::cout << "Please, try to enter the number again : ";
+        }
+    }    
+}
 
+void SharedPtrTest::printArray(const std::weak_ptr<int[]> &num) const
+{
     std::cout << "------------------------------------------------------" << std::endl;
     std::cout << "Array contents : ";
-    for(size_t i {}; i < m_size; ++i){
-        std::cout << m_parr[i] << " ";
+    if(auto sp = num.lock()){
+        for(size_t i {}; i < m_size; ++i){
+            std::cout << sp[i] << " ";
+        }
     }
     std::cout << std::endl;
 }
 
-int SharedPtrTest::sumArray(const std::weak_ptr<int[]>& num)
+void SharedPtrTest::sumArray(const std::weak_ptr<int[]>& num) const
 {
     int sum{0};
     if(auto sp = num.lock()){
@@ -39,37 +65,40 @@ int SharedPtrTest::sumArray(const std::weak_ptr<int[]>& num)
             sum = sum + sp[i];
         }
     }
-    return sum;
+    std::cout << "------------------------------------------------------" << std::endl;
+    std::cout << "Sum of the array equal : " << sum << std::endl;    
 }
 
-void SharedPtrTest::setArraySize()
+int SharedPtrTest::getArraySize() const
 {
     bool isSizeValid {};
+    int size {};
     std::string str {};
     std::cout << "Please, enter the size of the array : ";
     while(!isSizeValid){
         std::getline (std::cin, str);
         try {
-            m_size = std::stoi(str);
-            isSizeValid = true;
+            size = std::stoi(str);
+            if(size > 0){
+                isSizeValid = true;
+            } else {
+                std::cout << "The array size must be greater than zero!" << std::endl;
+                std::cout << "Please, try to enter the size again : ";
+            }
         } catch (std::invalid_argument &e) {
-            std::cout<< "Invalid number! : " << str << std::endl;
+            std::cout << "Invalid number! : " << str << std::endl;
             std::cout << "Please, try to enter the size again : ";
         }
     }
     std::cout << "------------------------------------------------------" << std::endl;
+    return size;
 }
 
-std::shared_ptr<int[]> SharedPtrTest::getSharedPtr()
-{
-    return m_parr;
-}
-
-void SharedPtrTest::sortArray(const std::weak_ptr<int[]> &num)
+void SharedPtrTest::sortArray(const std::weak_ptr<int[]> &num) const
 {
     if(auto sp = num.lock()){
         for (size_t i {}; i < m_size - 1; ++i)        {
-            for (size_t j = (m_size - 1); j > i; --j)
+            for (size_t j {m_size - 1}; j > i; --j)
             {
                 if (sp[j - 1] > sp[j])
                 {
@@ -82,15 +111,13 @@ void SharedPtrTest::sortArray(const std::weak_ptr<int[]> &num)
     }
 }
 
-SharedPtrTest::MinMaxResult SharedPtrTest::getMinMaxNum(const std::weak_ptr<int[]> &num)
+SharedPtrTest::MinMaxResult SharedPtrTest::getMinMaxNum(const std::weak_ptr<int[]> &num) const
 {
     MinMaxResult mmr;
     sortArray(num);
-
     if(auto sp = num.lock()){
         mmr.minNum = sp[0];
         mmr.maxNum = sp[m_size - 1];
     }
-
     return mmr;
 }

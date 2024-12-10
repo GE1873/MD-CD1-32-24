@@ -12,25 +12,16 @@ public:
     UniquePtrTest();
 
     ///
-    /// \brief Creates and populates an array
+    /// \brief Runs a unique smart pointer test
     ///
-    void createArray();
-
-    ///
-    /// \brief Prints an array
-    /// \param num
-    ///
-    void printArray(const std::unique_ptr<int[]>& num);
-
-    ///
-    /// \brief Gets an unique pointer to array
-    /// \return unique_ptr<int[]>
-    ///
-    std::unique_ptr<int[]> getUniquePtr();
+    void runTest();
 
 private:
     std::size_t m_size {10};
-    std::unique_ptr<int[]> m_parr {std::make_unique<int[]>(m_size)};
+    std::unique_ptr<int[]> m_pArr {std::make_unique<int[]>(m_size)};
+
+    void populateArray() const;
+    void printArray(const std::unique_ptr<int[]>& num) const;
 };
 
 #endif // UNIQUEPTRTEST_H

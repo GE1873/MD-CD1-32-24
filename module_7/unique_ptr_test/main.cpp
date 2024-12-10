@@ -1,8 +1,7 @@
 #include "uniqueptrtest.h"
 
 int main(){
-    UniquePtrTest upt;
-    upt.createArray();
-    upt.printArray(upt.getUniquePtr());
+    auto pUpt = std::make_unique<UniquePtrTest>();
+    pUpt->runTest();
     return 0;    
 }
