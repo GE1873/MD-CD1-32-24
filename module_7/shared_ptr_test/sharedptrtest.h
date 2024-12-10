@@ -18,17 +18,15 @@ public:
 
 private:    
     std::size_t m_size {static_cast<size_t>(getArraySize())};
-    std::shared_ptr<int[]> m_pArr {new int[m_size]};
+    std::shared_ptr<int[]> m_spArr {std::move(getArray())};
 
     struct MinMaxResult {
         int minNum;
         int maxNum;
-    };
-
-    int a {};
+    };    
 
     int getArraySize() const;
-    void populateArray() const;
+    std::unique_ptr<int[]> getArray() const;
     void printArray(const std::weak_ptr<int[]>& num) const;
     void sumArray(const std::weak_ptr<int[]>& num) const;
     void sortArray(const std::weak_ptr<int[]>& num) const;

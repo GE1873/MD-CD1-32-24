@@ -18,9 +18,9 @@ public:
 
 private:
     std::size_t m_size {10};
-    std::unique_ptr<int[]> m_pArr {std::make_unique<int[]>(m_size)};
+    std::unique_ptr<int[]> m_upArr {std::move(getArray())};
 
-    void populateArray() const;
+    std::unique_ptr<int[]> getArray() const;
     void printArray(const std::unique_ptr<int[]>& num) const;
 };
 
