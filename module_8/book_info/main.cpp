@@ -10,7 +10,6 @@ int main(){
     std::string strYear{};
     int year{};
     std::string strIsbn13{};
-
     int isbnSize{17};
     char* isbn {new char [isbnSize]};
 
@@ -34,7 +33,6 @@ int main(){
     }
 
     bool isIsbnValid {};
-
     std::cout << "Please, enter the ISBN of the book in format XXX-X-XXX-XXXXX-X : ";
     while(!isIsbnValid){
         std::getline (std::cin, strIsbn13);
@@ -53,7 +51,8 @@ int main(){
     isbn = nullptr;
 
     if(upBook){
-        std::cout << "Book info : " << std::endl;
+        std::cout << "------------------------------------------------------" << std::endl;
+        std::cout << "Book information" << std::endl;
         upBook->printInfo();
     }else{
         std::cerr << "Error : Book class object is undefined!";
@@ -64,13 +63,15 @@ int main(){
     auto upBookCopy {std::make_unique<Book>(*upBook)};
 
     if(upBookCopy){
-        std::cout << "Book copy info : " << std::endl;
+        std::cout << "------------------------------------------------------" << std::endl;
+        std::cout << "Book copy information" << std::endl;
         upBookCopy->printInfo();
     }else{
         std::cerr << "Error : Book class object is undefined!";
         std::cout << std::endl;
         exit(EXIT_FAILURE);
     }
+    std::cout << "------------------------------------------------------" << std::endl;
 
     return 0;
 }

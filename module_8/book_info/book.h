@@ -4,6 +4,9 @@
 #include <memory>
 #include <string>
 
+///
+/// \brief Book class for describing basic information about a book
+///
 class Book
 {
 public:
@@ -11,6 +14,9 @@ public:
     Book(const Book& book);
     ~Book();
 
+    ///
+    /// \brief Prints information about the book
+    ///
     void printInfo() const;
 
     std::string title() const;

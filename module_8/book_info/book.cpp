@@ -1,5 +1,6 @@
 #include "book.h"
 
+#include <iomanip>
 #include <iostream>
 
 Book::Book(const std::string &title, const std::string &author, int year, char* isbn):
@@ -24,11 +25,10 @@ Book::~Book()
 
 void Book::printInfo() const
 {    
-    std::cout << "Title : " << m_title << std::endl;
-    std::cout << "Author : " << m_author << std::endl;
-    std::cout << "Year : " << m_year << std::endl;
-
-    std::cout << "ISBN : ";
+    std::cout << std::left << std::setw(30) << "Title : " << m_title << std::endl;
+    std::cout << std::left << std::setw(30) << "Author : " << m_author << std::endl;
+    std::cout << std::left << std::setw(30) << "Year : " << m_year << std::endl;
+    std::cout << std::left << std::setw(30) << "ISBN : ";
     for(size_t i {}; i < m_isbnSize; ++i){
         std::cout << *(m_isbn + i);
     }
