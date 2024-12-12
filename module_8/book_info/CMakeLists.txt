@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(book_info
     main.cpp
+    book.h
+    book.cpp
 )
 
 install(TARGETS book_info
