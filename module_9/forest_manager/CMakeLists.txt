@@ -6,7 +6,11 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(forest_manager
-    main.cpp    
+    main.cpp
+    tree.h
+    tree.cpp
+    forest.h
+    forest.cpp    
 )
 
 install(TARGETS forest_manager
