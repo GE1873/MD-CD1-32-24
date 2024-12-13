@@ -35,8 +35,8 @@ private:
     TREE_TYPE getType() const;
 
     static size_t counter;
-    std::string m_name{};
-    TREE_TYPE m_type{};
+    std::string m_name{"undefined"};
+    TREE_TYPE m_type{TREE_TYPE::UNKNOWN};
     size_t m_id{counter++ + 1};
 };
 
