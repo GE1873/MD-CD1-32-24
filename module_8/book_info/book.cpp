@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <iostream>
 
-Book::Book(const std::string &title, const std::string &author, int year, char* isbn):
+Book::Book(const std::string &title, const std::string &author, int year, const char* const isbn):
     m_title(title),
     m_author(author),
     m_year(year),
@@ -55,7 +55,7 @@ char* Book::isbn() const
     return m_isbn;
 }
 
-char* Book::getIsbnCopy(char* isbn)
+char* Book::getIsbnCopy(const char* const isbn) const
 {
     char* newIsbn = new char [m_isbnSize];
     memcpy(newIsbn, isbn, sizeof(char) * m_isbnSize);

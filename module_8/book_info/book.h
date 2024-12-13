@@ -10,7 +10,7 @@
 class Book
 {
 public:
-    Book(const std::string& title, const std::string& author, int year, char* isbn);
+    Book(const std::string& title, const std::string& author, int year, const char* const isbn);
     Book(const Book& book);
     ~Book();
 
@@ -25,13 +25,13 @@ public:
     char* isbn() const;
 
 private:
-    char* getIsbnCopy(char* isbn);
+    char* getIsbnCopy(const char* const isbn) const;
 
     std::string m_title{};
     std::string m_author{};
     int m_year{};
     char* m_isbn{};
-    static constexpr int m_isbnSize{17};
+    static const int m_isbnSize{17};
 };
 
 #endif // BOOK_H
