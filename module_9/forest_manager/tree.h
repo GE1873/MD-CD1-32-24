@@ -25,6 +25,7 @@ public:
     std::string getName() const;
 
 private:
+    static size_t m_counter;
     static std::string pineTreeNames[3];
     static std::string oakTreeNames[3];
     static std::string mapleTreeNames[3];
@@ -34,10 +35,9 @@ private:
     std::string generateName(const TREE_TYPE type) const;
     TREE_TYPE getType() const;
 
-    static size_t counter;
     std::string m_name{"undefined"};
     TREE_TYPE m_type{TREE_TYPE::UNKNOWN};
-    size_t m_id{counter++ + 1};
+    size_t m_id{m_counter++ + 1};
 };
 
 #endif // TREE_H

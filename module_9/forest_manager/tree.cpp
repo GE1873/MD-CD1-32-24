@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <iostream>
 
-size_t Tree::counter{};
+size_t Tree::m_counter{};
 std::string Tree::pineTreeNames[3] = {"Pinus Jeffreyi", "Pinus Strobus", "Pinus Ponderosa"};
 std::string Tree::oakTreeNames[3] = {"Black Oak", "Northern Red Oak", "Live Oak"};
 std::string Tree::mapleTreeNames[3] = {"Red Maple", "Amur Maple", "Norway Maple"};
