@@ -25,12 +25,12 @@ public:
     std::string getName() const;
 
 private:
-    static size_t m_counter;
-    static std::string pineTreeNames[3];
-    static std::string oakTreeNames[3];
-    static std::string mapleTreeNames[3];
-    static std::string birchTreeNames[3];
-    static std::string aspenTreeNames[3];
+    inline static size_t m_counter{};
+    inline static std::string pineTreeNames[3] = {"Red Pine", "Austrian Pine", "Longleaf Pine"};
+    inline static std::string oakTreeNames[3] = {"Black Oak", "Northern Red Oak", "Live Oak"};
+    inline static std::string mapleTreeNames[3] = {"Red Maple", "Amur Maple", "Norway Maple"};
+    inline static std::string birchTreeNames[3] = {"Silver Birch", "Dwarf Birch", "Himalayan Birch"};
+    inline static std::string aspenTreeNames[3] = {"Golden Aspen", "European Aspen", "Trembling Aspen"};
 
     std::string generateName(const TREE_TYPE type) const;
     TREE_TYPE getType() const;

@@ -2,23 +2,11 @@
 #include <iomanip>
 #include <iostream>
 
-size_t Tree::m_counter{};
-std::string Tree::pineTreeNames[3] = {"Pinus Jeffreyi", "Pinus Strobus", "Pinus Ponderosa"};
-std::string Tree::oakTreeNames[3] = {"Black Oak", "Northern Red Oak", "Live Oak"};
-std::string Tree::mapleTreeNames[3] = {"Red Maple", "Amur Maple", "Norway Maple"};
-std::string Tree::birchTreeNames[3] = {"Silver Birch", "Dwarf Birch", "Himalayan Birch"};
-std::string Tree::aspenTreeNames[3] = {"Golden Aspen", "European Aspen", "Trembling Aspen"};
+Tree::Tree(const TREE_TYPE type) : Tree(generateName(type), type) {}
 
-Tree::Tree(const TREE_TYPE type) :
-    Tree(generateName(type), type) {}
+Tree::Tree(const std::string &name, const TREE_TYPE type) : m_name{name}, m_type{type} {}
 
-Tree::Tree(const std::string &name, const TREE_TYPE type) :
-    m_name{name},
-    m_type{type} {}
-
-Tree::Tree(const Tree &tree) :
-    m_name{tree.getName()},
-    m_type{tree.getType()} {}
+Tree::Tree(const Tree &tree) : Tree(tree.getName(), tree.getType()) {}
 
 void Tree::wind() const
 {
