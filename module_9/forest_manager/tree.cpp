@@ -12,7 +12,7 @@ void Tree::wind() const
 {
     std::cout << "------------------------------------------------------" << std::endl;
     std::cout << std::left << std::setw(25) << "Tree name is : " << std::setw(25) << m_name << std::endl;
-    std::cout << std::left << std::setw(25) <<"Tree id is : " << std::setw(25) << m_id << std::endl;
+    std::cout << std::left << std::setw(25) << "Tree id is : " << std::setw(25) << m_id << std::endl;
     std::cout << "------------------------------------------------------" << std::endl;
 }
 
