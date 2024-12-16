@@ -6,7 +6,7 @@
 
 int main(){
     std::srand(std::time(0));
-    auto upTree = std::make_unique<Tree>(Tree::TREE_TYPE::PINE);
+    auto upTree = std::make_unique<Tree>(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5)));
     if(upTree){
         upTree->wind();
     }else{
@@ -24,7 +24,7 @@ int main(){
         exit(EXIT_FAILURE);
     }
 
-    auto upTree3 = std::make_unique<Tree>(Tree::TREE_TYPE::OAK);
+    auto upTree3 = std::make_unique<Tree>(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5)));
     if(upTree3){
         upTree3->wind();
     }else{

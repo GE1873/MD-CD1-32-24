@@ -22,27 +22,27 @@ std::string Tree::generateName(const TREE_TYPE type) const
     switch (type) {
     case TREE_TYPE::PINE:
     {
-        res = pineTreeNames[0 + (rand() % 3)];
+        res = m_pineTreeNames[0 + (rand() % 3)];
         break;
     }
     case TREE_TYPE::OAK:
     {
-        res = oakTreeNames[0 + (rand() % 3)];
+        res = m_oakTreeNames[0 + (rand() % 3)];
         break;
     }
     case TREE_TYPE::MAPLE:
     {
-        res = mapleTreeNames[0 + (rand() % 3)];
+        res = m_mapleTreeNames[0 + (rand() % 3)];
         break;
     }
     case TREE_TYPE::BIRCH:
     {
-        res = birchTreeNames[0 + (rand() % 3)];
+        res = m_birchTreeNames[0 + (rand() % 3)];
         break;
     }
     case TREE_TYPE::ASPEN:
     {
-        res = aspenTreeNames[0 + (rand() % 3)];
+        res = m_aspenTreeNames[0 + (rand() % 3)];
         break;
     }
     default:
