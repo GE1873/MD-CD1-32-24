@@ -17,7 +17,7 @@ public:
     void runTest();
 
 private:
-    std::size_t m_size {10};
+    std::size_t m_arrSize {10};
     std::unique_ptr<int[]> m_upArr {std::move(getArray())};
 
     std::unique_ptr<int[]> getArray() const;

@@ -17,28 +17,29 @@ void SharedPtrTest::runTest()
     std::cout << "Maximum number in array is : " << maxNum << std::endl;
     std::cout << "Minimum number in array is : " << minNum << std::endl;
     std::cout << "------------------------------------------------------" << std::endl;
+
 }
 
 std::unique_ptr<int[]> SharedPtrTest::getArray() const
 {
-    auto upArr {std::make_unique<int[]>(m_size)};
+    auto upArr {std::make_unique<int[]>(m_arrSize)};
     std::string str {};
     std::cout << "Please, enter the first number : ";
-    for(size_t i {}; i < m_size; ++i){
+    for(size_t i {}; i < m_arrSize; ++i){
         std::getline (std::cin, str);
         try {
             upArr[i] = std::stoi(str);
-            if(i < m_size - 1) std::cout << "Please, enter the next number : ";
+            if(i < m_arrSize - 1) std::cout << "Please, enter the next number : ";
         }
         catch (const std::invalid_argument& e)
         {
-            std::cout<< "Invalid number! : " << str << std::endl;
+            std::cerr<< "Error : Invalid number! : " << str << std::endl;
             --i;
             std::cout << "Please, try to enter the number again : ";
         }
         catch (const std::out_of_range& e)
         {
-            std::cout<< "The number is out of range! : " << str << std::endl;
+            std::cerr<< "Error : The number is out of range! : " << str << std::endl;
             --i;
             std::cout << "Please, try to enter the number again : ";
         }
@@ -51,31 +52,30 @@ void SharedPtrTest::printArray(const std::weak_ptr<int[]> &num) const
     std::cout << "------------------------------------------------------" << std::endl;
     if(auto spArr = num.lock()){
         std::cout << "Array contents : ";
-        for(size_t i {}; i < m_size; ++i){
+        for(size_t i {}; i < m_arrSize; ++i){
             std::cout << spArr[i] << " ";
         }
         std::cout << std::endl;
     } else {
-        std::cout << "Array undefined!";
+        std::cerr << "Error : Array undefined!";
         std::cout << std::endl;
-        exit(0);
+        exit(EXIT_FAILURE);
     }
-
 }
 
 void SharedPtrTest::sumArray(const std::weak_ptr<int[]>& num) const
 {
     std::cout << "------------------------------------------------------" << std::endl;
     int sum{0};
-    if(auto spArr = num.lock()){
-        std::cout << "Sum of the array equal : " << sum << std::endl;
-        for(size_t i {}; i < m_size; ++i){
+    if(auto spArr = num.lock()){        
+        for(size_t i {}; i < m_arrSize; ++i){            
             sum = sum + spArr[i];
         }
+        std::cout << "The sum of the array is : " << sum << std::endl;
     } else {
-        std::cout << "Array undefined!";
+        std::cerr << "Error : Array undefined!";
         std::cout << std::endl;
-        exit(0);
+        exit(EXIT_FAILURE);
     }
 }
 
@@ -92,18 +92,18 @@ int SharedPtrTest::getArraySize() const
             if(size > 0){
                 isSizeValid = true;
             } else {
-                std::cout << "The array size must be greater than zero!" << std::endl;
+                std::cerr << "Error : The array size must be greater than zero!" << std::endl;
                 std::cout << "Please, try to enter the size again : ";
             }
         }
         catch (const std::invalid_argument& e)
         {
-            std::cout<< "Invalid number! : " << str << std::endl;
+            std::cerr<< "Error : Invalid number! : " << str << std::endl;
             std::cout << "Please, try to enter the number again : ";
         }
         catch (const std::out_of_range& e)
         {
-            std::cout<< "The number is out of range! : " << str << std::endl;
+            std::cerr<< "Error : The number is out of range! : " << str << std::endl;
             std::cout << "Please, try to enter the number again : ";
         }
     }
@@ -114,11 +114,9 @@ int SharedPtrTest::getArraySize() const
 void SharedPtrTest::sortArray(const std::weak_ptr<int[]> &num) const
 {
     if(auto spArr = num.lock()){
-        for (size_t i {}; i < m_size - 1; ++i)        {
-            for (size_t j {m_size - 1}; j > i; --j)
-            {
-                if (spArr[j - 1] > spArr[j])
-                {
+        for (size_t i {}; i < m_arrSize - 1; ++i){
+            for (size_t j {m_arrSize - 1}; j > i; --j){
+                if (spArr[j - 1] > spArr[j]){
                     int temp = spArr[j - 1];
                     spArr[j - 1] = spArr[j];
                     spArr[j] = temp;
@@ -126,23 +124,25 @@ void SharedPtrTest::sortArray(const std::weak_ptr<int[]> &num) const
             }
         }
     } else {
-        std::cout << "Array undefined!";
+        std::cerr << "Error : Array undefined!";
         std::cout << std::endl;
-        exit(0);
+        exit(EXIT_FAILURE);
     }
 }
 
 SharedPtrTest::MinMaxResult SharedPtrTest::getMinMaxNum(const std::weak_ptr<int[]> &num) const
 {
-    MinMaxResult mmr;
-    sortArray(num);
     if(auto spArr = num.lock()){
-        mmr.minNum = spArr[0];
-        mmr.maxNum = spArr[m_size - 1];
+        sortArray(num);
+        return MinMaxResult{
+            spArr[0],
+            spArr[m_arrSize - 1]
+        };
     } else {
-        std::cout << "Array undefined!";
+        std::cerr << "Error : Array undefined!";
         std::cout << std::endl;
-        exit(0);
+        exit(EXIT_FAILURE);
     }
-    return mmr;
 }
+
+
