@@ -9,15 +9,20 @@ SharedPtrTest::SharedPtrTest()
 
 void SharedPtrTest::runTest()
 {
-    std::weak_ptr<int[]> wpArr {m_spArr};
-    printArray(wpArr);
-    sumArray(wpArr);
-    const auto [minNum, maxNum] = getMinMaxNum(wpArr);
-    std::cout << "------------------------------------------------------" << std::endl;
-    std::cout << "Maximum number in array is : " << maxNum << std::endl;
-    std::cout << "Minimum number in array is : " << minNum << std::endl;
-    std::cout << "------------------------------------------------------" << std::endl;
-
+    if(m_spArr){
+        std::weak_ptr<int[]> wpArr {m_spArr};
+        printArray(wpArr);
+        sumArray(wpArr);
+        const auto [minNum, maxNum] = getMinMaxNum(wpArr);
+        std::cout << "------------------------------------------------------" << std::endl;
+        std::cout << "Maximum number in array is : " << maxNum << std::endl;
+        std::cout << "Minimum number in array is : " << minNum << std::endl;
+        std::cout << "------------------------------------------------------" << std::endl;
+    }else{
+        std::cerr << "Error : Array undefined!";
+        std::cout << std::endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 std::unique_ptr<int[]> SharedPtrTest::getArray() const

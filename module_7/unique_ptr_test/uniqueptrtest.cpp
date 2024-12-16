@@ -9,7 +9,13 @@ UniquePtrTest::UniquePtrTest()
 
 void UniquePtrTest::runTest()
 {
-    printArray(m_upArr);
+    if(m_upArr){
+        printArray(m_upArr);
+    }else{
+        std::cerr << "Error : Array undefined!";
+        std::cout << std::endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 std::unique_ptr<int[]> UniquePtrTest::getArray() const
