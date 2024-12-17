@@ -10,7 +10,7 @@
 ///
 class Catalog
 {
-public:
+private:
     enum class SECTION {
         UNKNOWN = -1,
         CRIME = 1,
