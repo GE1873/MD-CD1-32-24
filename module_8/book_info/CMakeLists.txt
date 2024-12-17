@@ -9,6 +9,8 @@ add_executable(book_info
     main.cpp
     book.h
     book.cpp
+    catalog.h
+    catalog.cpp
 )
 
 install(TARGETS book_info
