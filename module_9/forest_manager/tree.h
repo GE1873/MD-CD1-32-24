@@ -37,7 +37,7 @@ private:
 
     std::string m_name{"undefined"};
     TREE_TYPE m_type{TREE_TYPE::UNKNOWN};
-    size_t m_id{m_counter++ + 1};
+    size_t m_id{};
 };
 
 #endif // TREE_H

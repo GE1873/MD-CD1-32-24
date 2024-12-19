@@ -4,15 +4,23 @@
 
 Tree::Tree(const TREE_TYPE type) : Tree(generateName(type), type) {}
 
-Tree::Tree(const std::string &name, const TREE_TYPE type) : m_name{name}, m_type{type} {}
+Tree::Tree(const std::string &name, const TREE_TYPE type) : m_name{name}, m_type{type}
+{
+    m_id = ++m_counter;
+}
 
-Tree::Tree(const Tree &tree) : Tree(tree.getName(), tree.getType()) {}
+Tree::Tree(const Tree &tree)
+{
+    m_name = tree.getName();
+    m_type = tree.getType();
+    m_id = tree.getId();
+}
 
 void Tree::wind() const
 {
     std::cout << "------------------------------------------------------" << std::endl;
-    std::cout << std::left << std::setw(25) << "Tree name is : " << std::setw(25) << m_name << std::endl;
-    std::cout << std::left << std::setw(25) << "Tree id is : " << std::setw(25) << m_id << std::endl;
+    std::cout << std::left << std::setw(25) << "Tree name is : " << std::setw(25) << getName() << std::endl;
+    std::cout << std::left << std::setw(25) << "Tree id is : " << std::setw(25) << getId() << std::endl;
     std::cout << "------------------------------------------------------" << std::endl;
 }
 
