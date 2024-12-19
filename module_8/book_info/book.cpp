@@ -6,21 +6,18 @@
 Book::Book(const std::string &title,
            const std::string &author,
            int year,
-           const char* const isbn,
-           const std::string &genre):
+           const char* const isbn):
     m_title(title),
     m_author(author),
     m_year(year),
-    m_isbn(getIsbnCopy(isbn)),
-    m_genre(genre)
+    m_isbn(getIsbnCopy(isbn))
 {}
 
 Book::Book(const Book& book):
     m_title(book.title()),
     m_author(book.author()),
     m_year(book.year()),
-    m_isbn(getIsbnCopy(book.isbn())),
-    m_genre(book.genre())
+    m_isbn(getIsbnCopy(book.isbn()))
 {}
 
 Book::~Book()
@@ -39,7 +36,6 @@ void Book::printInfo() const
         std::cout << *(m_isbn + i);
     }
     std::cout << std::endl;
-    std::cout << std::left << std::setw(30) << "Genre : " << m_genre << std::endl;
 }
 
 std::string Book::title() const
@@ -67,9 +63,4 @@ char* Book::getIsbnCopy(const char* const isbn) const
     char* newIsbn = new char [m_isbnSize];
     memcpy(newIsbn, isbn, sizeof(char) * m_isbnSize);
     return newIsbn;
-}
-
-std::string Book::genre() const
-{
-    return m_genre;
 }

@@ -43,7 +43,7 @@ int main(){
     }
     catch (const std::invalid_argument& e)
     {
-        std::cout << "Test error: " << e.what() << std::endl;
+        std::cerr << "Test error: " << e.what() << std::endl;
         exit(EXIT_FAILURE);
     }
 

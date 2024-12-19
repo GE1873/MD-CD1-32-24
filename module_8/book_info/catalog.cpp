@@ -32,7 +32,7 @@ void Catalog::addToCatalog(const std::unique_ptr<Book> upBook)
         }
 
     }else{
-        throw std::invalid_argument("book class object is undefined");
+        throw std::invalid_argument("Error : Book class object is undefined!");
     }
 }
 
@@ -96,10 +96,7 @@ std::unique_ptr<Book> Catalog::getBook()
         }
     }
 
-    std::cout << "Please, enter the genre of the book : ";
-    std::getline (std::cin, strGenre);
-
-    auto upBook {std::make_unique<Book>(strTitle, strAuthor, year, isbn, strGenre)};
+    auto upBook {std::make_unique<Book>(strTitle, strAuthor, year, isbn)};
 
     delete[] isbn;
     isbn = nullptr;
@@ -153,10 +150,7 @@ void Catalog::testCatalogFiltering()
             }
         }
 
-        std::cout << "Please, enter the genre of the book : ";
-        std::getline (std::cin, strGenre);
-
-        auto upBook {std::make_unique<Book>(strTitle, strAuthor, year, isbn, strGenre)};
+        auto upBook {std::make_unique<Book>(strTitle, strAuthor, year, isbn)};
 
         delete[] isbn;
         isbn = nullptr;
@@ -164,7 +158,7 @@ void Catalog::testCatalogFiltering()
         if(upBook){
             this->addToCatalog(std::move(upBook));
         }else{
-            throw std::invalid_argument("catalog class object is undefined");
+            throw std::invalid_argument("Error : Book class object is undefined!");
         }
     }
 
@@ -187,7 +181,7 @@ void Catalog::testCatalogFiltering()
             if(upFilteredBooksBySection){
                 upFilteredBooksBySection = this->getBooksBySection(section);
             }else{
-                throw std::invalid_argument("vector is undefined");
+                throw std::invalid_argument("Error : Vector class object is undefined!");
             }
             isSectionNumValid = true;
         } else {
@@ -212,7 +206,7 @@ void Catalog::testCatalogFiltering()
     if(upFilteredBooksByTitle){
         upFilteredBooksByTitle = this->getBooksByTitle(strTitle);
     }else{
-        throw std::invalid_argument("vector is undefined");
+        throw std::invalid_argument("Error : Vector class object is undefined!");
     }
     std::cout << "------------------------------------------------------" << std::endl;
     if(upFilteredBooksByTitle->size() > 0){
@@ -231,7 +225,7 @@ void Catalog::testCatalogFiltering()
     if(upFilteredBooksByAuthor){
         upFilteredBooksByAuthor = this->getBooksByAuthor(strAuthor);
     }else{
-        throw std::invalid_argument("vector is undefined");
+        throw std::invalid_argument("Error : Vector class object is undefined!");
     }
     std::cout << "------------------------------------------------------" << std::endl;
     if(upFilteredBooksByAuthor->size() > 0){
@@ -254,7 +248,7 @@ void Catalog::testCatalogFiltering()
             if(upFilteredBooksByYear){
                 upFilteredBooksByYear = this->getBooksByYear(year);
             }else{
-                throw std::invalid_argument("vector is undefined");
+                throw std::invalid_argument("Error : Vector class object is undefined!");
             }
             isYearValid = true;
         } else {

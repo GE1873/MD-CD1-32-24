@@ -13,8 +13,7 @@ public:
     Book(const std::string& title,
          const std::string& author,
          int year,
-         const char* const isbn,
-         const std::string& genre);
+         const char* const isbn);
     Book(const Book& book);
     ~Book();
 
@@ -30,7 +29,6 @@ public:
     std::string author() const;
     int year() const;
     char* isbn() const;
-    std::string genre() const;
 
 private:
     char* getIsbnCopy(const char* const isbn) const;
@@ -39,7 +37,6 @@ private:
     std::string m_author{};
     int m_year{};
     char* m_isbn{};
-    std::string m_genre{};
     static const int m_isbnSize{17};
 };
 
