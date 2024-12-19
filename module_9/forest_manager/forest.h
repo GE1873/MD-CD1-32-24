@@ -17,6 +17,8 @@ public:
     size_t getTreesNumber() const;
     std::vector<Tree> trees() const;
 
+    std::shared_ptr<Forest> operator+(const std::shared_ptr<Forest> other);
+
 private:
     std::vector<Tree> m_trees{};
 };

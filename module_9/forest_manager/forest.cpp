@@ -32,3 +32,18 @@ std::vector<Tree> Forest::trees() const
 {
     return m_trees;
 }
+
+std::shared_ptr<Forest> Forest::operator+(const std::shared_ptr<Forest> other)
+{
+    if(other){
+        std::vector<Tree> trees1 = this->trees();
+        std::vector<Tree> trees2 = other->trees();
+        std::vector<Tree> trees3{};
+        trees3.reserve(trees1.size() + trees2.size());
+        trees3.insert(trees3.end(), trees1.begin(), trees1.end());
+        trees3.insert(trees3.end(), trees2.begin(), trees2.end());
+        return std::make_shared<Forest>(trees3);
+    }else{
+        throw std::invalid_argument("forest class object is undefined");
+    }
+}
