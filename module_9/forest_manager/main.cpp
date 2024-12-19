@@ -28,7 +28,16 @@ int main(){
         exit(EXIT_FAILURE);
     }
 
-    auto upForest3 = *upForest1 + upForest2;
+    std::shared_ptr<Forest> upForest3{};
+
+    try {
+        upForest3 = *upForest1 + upForest2;
+    }
+    catch (const std::invalid_argument& e)
+    {
+        std::cerr << e.what() << std::endl;
+        exit(EXIT_FAILURE);
+    }
 
     if(upForest3){
         std::cout << std::left << std::setw(25) << "Number of trees in the forest : " << std::setw(25) << upForest3->getTreesNumber() << std::endl;
@@ -46,6 +55,10 @@ int main(){
         std::cout << std::endl;
         exit(EXIT_FAILURE);
     }
+
+//    std::cout << upForest1.use_count() << std::endl;
+//    std::cout << upForest2.use_count() << std::endl;
+//    std::cout << upForest3.use_count() << std::endl;
 
     return 0;
 }

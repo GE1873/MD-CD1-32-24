@@ -44,6 +44,6 @@ std::shared_ptr<Forest> Forest::operator+(const std::shared_ptr<Forest> other)
         trees3.insert(trees3.end(), trees2.begin(), trees2.end());
         return std::make_shared<Forest>(trees3);
     }else{
-        throw std::invalid_argument("forest class object is undefined");
+        throw std::invalid_argument("Error : Forest class object is undefined!");
     }
 }
