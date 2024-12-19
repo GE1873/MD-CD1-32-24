@@ -3,6 +3,9 @@
 
 #include <string>
 
+///
+/// \brief The Tree class
+///
 class Tree
 {
 public:
@@ -20,7 +23,15 @@ public:
     Tree(const std::string& name, const TREE_TYPE type);
     Tree(const Tree& tree);
 
+    ///
+    /// \brief Prints the name and id of the tree
+    ///
     void wind() const;
+
+    ///
+    /// \brief Getters
+    /// \return
+    ///
     size_t getId() const;
     std::string getName() const;
 
