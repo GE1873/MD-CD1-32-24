@@ -32,16 +32,3 @@ std::vector<Tree> Forest::trees() const
 {
     return m_trees;
 }
-
-std::unique_ptr<Forest> operator+(const std::unique_ptr<Forest> forest1, const std::unique_ptr<Forest> forest2)
-{
-    if(forest1 && forest2){
-        std::vector<Tree> newForestTrees{};
-        newForestTrees.reserve(forest1->trees().size() + forest2->trees().size());
-        newForestTrees.insert(newForestTrees.end(), forest1->trees().begin(), forest1->trees().end());
-        newForestTrees.insert(newForestTrees.end(), forest2->trees().begin(), forest2->trees().end());
-        return std::make_unique<Forest>(newForestTrees);
-    }else{
-        throw std::invalid_argument("forest class object is undefined");
-    }
-}
