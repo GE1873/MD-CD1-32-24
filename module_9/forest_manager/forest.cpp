@@ -20,9 +20,8 @@ void Forest::cutAll()
     m_trees.clear();
 }
 
-void Forest::autoPlantForest()
-{
-    size_t numberOfTrees {static_cast<size_t>(1 + (rand() % 31))};
+void Forest::autoPlantForest(size_t numberOfTrees)
+{    
     for(size_t i{}; i<numberOfTrees; ++i){
         growUp(Tree(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5))));
     }

@@ -24,7 +24,7 @@ public:
     ///
     /// \brief Automatically plants forest
     ///
-    void autoPlantForest();
+    void autoPlantForest(size_t numberOfTree);
 
     ///
     /// \brief Overloading the "+" operator to merge forests

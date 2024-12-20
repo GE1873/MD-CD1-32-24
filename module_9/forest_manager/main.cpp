@@ -10,7 +10,7 @@ int main(){
 
     auto spForest1 = std::make_shared<Forest>();
     if(spForest1){
-        spForest1->autoPlantForest();
+        spForest1->autoPlantForest(100);
 
         std::cout << std::left << std::setw(25) << "Number of trees in the first forest : " << std::setw(25) << spForest1->getTreesNumber() << std::endl;
 
@@ -28,7 +28,7 @@ int main(){
 
     auto spForest2 = std::make_shared<Forest>();
     if(spForest2){
-        spForest2->autoPlantForest();
+        spForest2->autoPlantForest(200);
         std::cout << std::left << std::setw(25) << "Number of trees in the second forest : " << std::setw(25) << spForest2->getTreesNumber() << std::endl;
     }else{
         std::cerr << "Error : Forest class object is undefined!";
