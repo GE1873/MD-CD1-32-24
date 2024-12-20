@@ -17,16 +17,17 @@ void Forest::growUp(const Tree* const tree)
 
 void Forest::cutAll()
 {
+    for (auto tree : m_trees)
+    {
+        delete tree;
+    }
     m_trees.clear();
 }
 
 void Forest::autoPlantForest(size_t numberOfTrees)
 {    
     for(size_t i{}; i<numberOfTrees; ++i){
-        Tree* tree = new Tree(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5)));
-        growUp(tree);
-        //delete tree;
-        tree = nullptr;
+        growUp(new Tree(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5))));
     }
 }
 

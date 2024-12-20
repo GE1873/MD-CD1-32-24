@@ -21,6 +21,8 @@ int main(){
         treeCopy = new Tree(*tree);
         spForest1->growUp(tree);
         spForest1->growUp(treeCopy);
+        tree = nullptr;
+        treeCopy = nullptr;
 
         std::cout << std::left << std::setw(25) << "Number of trees in the first forest after original and copy addition : " << std::setw(25) << spForest1->getTreesNumber() << std::endl;
     }else{
