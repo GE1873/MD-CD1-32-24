@@ -8,21 +8,19 @@
 int main(){
     std::srand(std::time(0));
 
+    Tree* tree{};
+    Tree* treeCopy{};
+
     auto spForest1 = std::make_shared<Forest>();
     if(spForest1){
         spForest1->autoPlantForest(100);
 
         std::cout << std::left << std::setw(25) << "Number of trees in the first forest : " << std::setw(25) << spForest1->getTreesNumber() << std::endl;
 
-        Tree* tree = new Tree(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5)));
-        Tree* treeCopy = new Tree(*tree);
+        tree = new Tree(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5)));
+        treeCopy = new Tree(*tree);
         spForest1->growUp(tree);
         spForest1->growUp(treeCopy);
-
-        delete tree;
-        delete treeCopy;
-        tree = nullptr;
-        treeCopy = nullptr;
 
         std::cout << std::left << std::setw(25) << "Number of trees in the first forest after original and copy addition : " << std::setw(25) << spForest1->getTreesNumber() << std::endl;
     }else{
@@ -67,7 +65,7 @@ int main(){
         std::cerr << "Error : Forest class object is undefined!";
         std::cout << std::endl;
         exit(EXIT_FAILURE);
-    }    
+    }
 
     return 0;
 }
