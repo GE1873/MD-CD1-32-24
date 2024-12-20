@@ -14,10 +14,15 @@ int main(){
 
         std::cout << std::left << std::setw(25) << "Number of trees in the first forest : " << std::setw(25) << spForest1->getTreesNumber() << std::endl;
 
-        Tree tree(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5)));
-        Tree treeCopy(tree);
+        Tree* tree = new Tree(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5)));
+        Tree* treeCopy = new Tree(*tree);
         spForest1->growUp(tree);
         spForest1->growUp(treeCopy);
+
+        delete tree;
+        delete treeCopy;
+        tree = nullptr;
+        treeCopy = nullptr;
 
         std::cout << std::left << std::setw(25) << "Number of trees in the first forest after original and copy addition : " << std::setw(25) << spForest1->getTreesNumber() << std::endl;
     }else{

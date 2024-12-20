@@ -13,7 +13,8 @@ Tree::Tree(const Tree &tree)
 {
     m_name = tree.getName();
     m_type = tree.getType();
-    m_id = tree.getId();
+    //m_id = tree.getId();
+    m_id = ++m_counter;
 }
 
 void Tree::wind() const
