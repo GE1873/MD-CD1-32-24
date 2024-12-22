@@ -56,8 +56,7 @@ void Catalog::printAdditionDateTime(const BookRecord& br) const
 std::unique_ptr<Book> Catalog::getBook()
 {
     std::string strTitle{};
-    std::string strAuthor{};
-    std::string strGenre{};
+    std::string strAuthor{};    
     std::string strYear{};
     int year{};
     std::string strIsbn13{};
@@ -107,8 +106,7 @@ std::unique_ptr<Book> Catalog::getBook()
 void Catalog::testCatalogFiltering()
 {
     std::string strTitle{};
-    std::string strAuthor{};
-    std::string strGenre{};
+    std::string strAuthor{};    
     std::string strYear{};
     int year{};
     std::string strIsbn13{};
