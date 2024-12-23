@@ -8,23 +8,10 @@
 int main(){
     std::srand(std::time(0));
 
-    Tree* tree{};
-    Tree* treeCopy{};
-
     auto spForest1 = std::make_shared<Forest>();
     if(spForest1){
         spForest1->autoPlantForest(100);
-
         std::cout << std::left << std::setw(25) << "Number of trees in the first forest : " << std::setw(25) << spForest1->getTreesNumber() << std::endl;
-
-        tree = new Tree(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5)));
-        treeCopy = new Tree(*tree);
-        spForest1->growUp(tree);
-        spForest1->growUp(treeCopy);
-        tree = nullptr;
-        treeCopy = nullptr;
-
-        std::cout << std::left << std::setw(25) << "Number of trees in the first forest after original and copy addition : " << std::setw(25) << spForest1->getTreesNumber() << std::endl;
     }else{
         std::cerr << "Error : Forest class object is undefined!";
         std::cout << std::endl;
@@ -33,7 +20,7 @@ int main(){
 
     auto spForest2 = std::make_shared<Forest>();
     if(spForest2){
-        spForest2->autoPlantForest(200);
+        spForest2->autoPlantForest(100);
         std::cout << std::left << std::setw(25) << "Number of trees in the second forest : " << std::setw(25) << spForest2->getTreesNumber() << std::endl;
     }else{
         std::cerr << "Error : Forest class object is undefined!";
@@ -53,16 +40,23 @@ int main(){
     }
 
     if(spForest3){
-        std::cout << std::left << std::setw(25) << "Number of trees in the merged forest (first + second) : " << std::setw(25) << spForest3->getTreesNumber() << std::endl;
+        std::cout << std::left << std::setw(25) << "Number of trees in the united forest (first + second) : " << std::setw(25) << spForest3->getTreesNumber() << std::endl;
     }else{
         std::cerr << "Error : Forest class object is undefined!";
         std::cout << std::endl;
         exit(EXIT_FAILURE);
     }
 
-    if(spForest2){
-        spForest2->cutAll();
-        std::cout << std::left << std::setw(25) << "The number of trees in the second forest after cutting down : " << std::setw(25) << spForest2->getTreesNumber() << std::endl;
+    if(spForest3){
+        spForest3->cutAll();
+         std::cout << std::left << std::setw(25) << "The number of trees in the united forest after cutting down : " << std::setw(25) << spForest3->getTreesNumber() << std::endl;
+
+        auto tree = std::make_unique<Tree>(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5)));
+        auto treeCopy = std::make_unique<Tree>(*tree);
+        spForest3->growUp(std::move(tree));
+        spForest3->growUp(std::move(treeCopy));
+        std::cout << std::left << std::setw(25) << "Number of trees in the united after original and copy addition : " << std::setw(25) << spForest3->getTreesNumber() << std::endl;
+
     }else{
         std::cerr << "Error : Forest class object is undefined!";
         std::cout << std::endl;

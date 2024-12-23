@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <iostream>
 
-Tree::Tree(const TREE_TYPE type) : Tree(generateName(type), type) {}
+Tree::Tree(const TREE_TYPE type) : Tree{generateName(type), type} {}
 
 Tree::Tree(const std::string &name, const TREE_TYPE type) : m_name{name}, m_type{type}
 {

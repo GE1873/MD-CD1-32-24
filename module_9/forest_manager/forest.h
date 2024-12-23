@@ -9,13 +9,14 @@ class Forest
 {
 public:
     Forest() = default;
-    Forest(const std::vector<const Tree *> trees);
+    Forest(std::vector<std::unique_ptr<Tree>> *trees);
+    ~Forest();
 
     ///
     /// \brief Adds a tree to the forest
     /// \param tree
     ///
-    void growUp(const Tree* const tree);
+    void growUp(std::unique_ptr<Tree>);
 
     ///
     /// \brief Cutting down all the trees
@@ -38,10 +39,10 @@ public:
     /// \return
     ///
     size_t getTreesNumber() const;
-    std::vector<const Tree *> trees() const;
+    std::vector<std::unique_ptr<Tree> > *trees() const;
 
 private:
-    std::vector<const Tree*> m_trees{};
+    std::vector<std::unique_ptr<Tree>>* m_trees{new std::vector<std::unique_ptr<Tree>>};
 };
 
 #endif // FOREST_H
