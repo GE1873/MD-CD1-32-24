@@ -51,7 +51,7 @@ int main(){
         spForest3->cutAll();
          std::cout << std::left << std::setw(25) << "The number of trees in the united forest after cutting down : " << std::setw(25) << spForest3->getTreesNumber() << std::endl;
 
-        auto tree = std::make_unique<Tree>(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5)));
+        auto tree = std::make_unique<Tree>(static_cast<Tree::TreeType>(0 + (rand() % 5)));
         auto treeCopy = std::make_unique<Tree>(*tree);
         spForest3->growUp(std::move(tree));
         spForest3->growUp(std::move(treeCopy));

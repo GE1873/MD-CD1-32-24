@@ -24,9 +24,9 @@ size_t Forest::getTreesNumber() const
     } else return 0;
 }
 
-void Forest::growUp(std::unique_ptr<Tree> tree)
+void Forest::growUp(std::unique_ptr<Tree> upTree)
 {
-    m_trees->push_back(std::move(tree));
+    m_trees->push_back(std::move(upTree));
 }
 
 void Forest::cutAll()
@@ -45,7 +45,7 @@ void Forest::cutAll()
 void Forest::autoPlantForest(size_t numberOfTrees)
 {    
     for(size_t i{}; i<numberOfTrees; ++i){
-        growUp(std::make_unique<Tree>(static_cast<Tree::TREE_TYPE>(0 + (rand() % 5))));
+        growUp(std::make_unique<Tree>(static_cast<Tree::TreeType>(0 + (rand() % 5))));
     }
 }
 
@@ -54,12 +54,12 @@ std::vector<std::unique_ptr<Tree>>* Forest::trees() const
     return m_trees;
 }
 
-std::shared_ptr<Forest> Forest::operator+(const std::shared_ptr<Forest> other)
+std::shared_ptr<Forest> Forest::operator+(const std::shared_ptr<Forest> spOther)
 {
-    if(other){
+    if(spOther){
         std::vector<std::unique_ptr<Tree>>* trees1 = this->trees();
-        std::vector<std::unique_ptr<Tree>>* trees2 = other->trees();
-        std::vector<std::unique_ptr<Tree>>* trees3 {new std::vector<std::unique_ptr<Tree>>};
+        std::vector<std::unique_ptr<Tree>>* trees2 = spOther->trees();
+        std::vector<std::unique_ptr<Tree>>* trees3 {new std::vector<std::unique_ptr<Tree>>{}};
         trees3->reserve(trees1->size() + trees2->size());
         trees3->insert(trees3->end(), std::make_move_iterator(trees1->begin()), std::make_move_iterator(trees1->end()));
         trees3->insert(trees3->end(), std::make_move_iterator(trees2->begin()), std::make_move_iterator(trees2->end()));

@@ -2,17 +2,17 @@
 #include <iomanip>
 #include <iostream>
 
-Tree::Tree(const TREE_TYPE type) : Tree{generateName(type), type} {}
+Tree::Tree(const TreeType treeType) : Tree{generateName(treeType), treeType} {}
 
-Tree::Tree(const std::string &name, const TREE_TYPE type) : m_name{name}, m_type{type}
+Tree::Tree(const std::string& name, const TreeType treeType) : m_name{name}, m_treeType{treeType}
 {
     m_id = ++m_counter;
 }
 
-Tree::Tree(const Tree &tree)
+Tree::Tree(const Tree& tree)
 {
     m_name = tree.getName();
-    m_type = tree.getType();
+    m_treeType = tree.getTreeType();
     m_id = ++m_counter;
 }
 
@@ -24,31 +24,31 @@ void Tree::wind() const
     std::cout << "------------------------------------------------------" << std::endl;
 }
 
-std::string Tree::generateName(const TREE_TYPE type) const
+std::string Tree::generateName(const TreeType treeType) const
 {
     std::string res {};
-    switch (type) {
-    case TREE_TYPE::PINE:
+    switch (treeType) {
+    case TreeType::PINE:
     {
         res = m_pineTreeNames[0 + (rand() % 3)];
         break;
     }
-    case TREE_TYPE::OAK:
+    case TreeType::OAK:
     {
         res = m_oakTreeNames[0 + (rand() % 3)];
         break;
     }
-    case TREE_TYPE::MAPLE:
+    case TreeType::MAPLE:
     {
         res = m_mapleTreeNames[0 + (rand() % 3)];
         break;
     }
-    case TREE_TYPE::BIRCH:
+    case TreeType::BIRCH:
     {
         res = m_birchTreeNames[0 + (rand() % 3)];
         break;
     }
-    case TREE_TYPE::ASPEN:
+    case TreeType::ASPEN:
     {
         res = m_aspenTreeNames[0 + (rand() % 3)];
         break;
@@ -62,9 +62,9 @@ std::string Tree::generateName(const TREE_TYPE type) const
     return res;
 }
 
-Tree::TREE_TYPE Tree::getType() const
+Tree::TreeType Tree::getTreeType() const
 {
-    return m_type;
+    return m_treeType;
 }
 
 std::string Tree::getName() const

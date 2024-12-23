@@ -4,12 +4,12 @@
 #include <string>
 
 ///
-/// \brief The Tree class
+/// \brief The Tree class for creating tree objects
 ///
 class Tree
 {
 public:
-    enum class TREE_TYPE {
+    enum class TreeType {
         UNKNOWN = -1,
         PINE,
         OAK,
@@ -19,8 +19,8 @@ public:
     };
 
 public:
-    Tree(const TREE_TYPE type);
-    Tree(const std::string& name, const TREE_TYPE type);
+    Tree(const TreeType treeType);
+    Tree(const std::string& name, const TreeType treeType);
     Tree(const Tree& tree);
 
     ///
@@ -43,11 +43,11 @@ private:
     inline static std::string m_birchTreeNames[3] = {"Silver Birch", "Dwarf Birch", "Himalayan Birch"};
     inline static std::string m_aspenTreeNames[3] = {"Golden Aspen", "European Aspen", "Trembling Aspen"};
 
-    std::string generateName(const TREE_TYPE type) const;
-    TREE_TYPE getType() const;
+    std::string generateName(const TreeType treeType) const;
+    TreeType getTreeType() const;
 
     std::string m_name{"undefined"};
-    TREE_TYPE m_type{TREE_TYPE::UNKNOWN};
+    TreeType m_treeType{TreeType::UNKNOWN};
     size_t m_id{};
 };
 
