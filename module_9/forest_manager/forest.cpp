@@ -26,7 +26,11 @@ size_t Forest::getTreesNumber() const
 
 void Forest::growUp(std::unique_ptr<Tree> upTree)
 {
-    m_trees->push_back(std::move(upTree));
+    if(upTree){
+        m_trees->push_back(std::move(upTree));
+    }else{
+        throw std::invalid_argument("Error : Tree class object is undefined!");
+    }
 }
 
 void Forest::cutAll()
@@ -45,7 +49,13 @@ void Forest::cutAll()
 void Forest::autoPlantForest(size_t numberOfTrees)
 {    
     for(size_t i{}; i<numberOfTrees; ++i){
-        growUp(std::make_unique<Tree>(static_cast<Tree::TreeType>(0 + (rand() % 5))));
+        try {
+            growUp(std::make_unique<Tree>(static_cast<Tree::TreeType>(0 + (rand() % 5))));
+        }
+        catch (const std::invalid_argument& e)
+        {
+            throw e;
+        }
     }
 }
 
