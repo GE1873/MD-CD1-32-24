@@ -3,19 +3,17 @@
 #include <iomanip>
 #include <iostream>
 
-Pine::Pine()
-{
-    _treeType = TreeNamesGenerator::TreeType::PINE;
-    _treeCategory = TreeNamesGenerator::TreeCategory::CONIFEROUS;
-    _name = TreeNamesGenerator::generateName( _treeType );
+Pine::Pine() : Tree(TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::PINE ),
+           TreeNamesGenerator::TreeType::PINE,
+           TreeNamesGenerator::TreeCategory::CONIFEROUS )
+{   
     _id = ++_counter;
 }
 
-Pine::Pine( const Pine& pine )
-{
-    _treeType = pine.getTreeType();
-    _treeCategory = pine.getTreeCategory();
-    _name = pine.getName();
+Pine::Pine( const Pine& pine ) : Tree( pine.getName(),
+           pine.getTreeType(),
+           pine.getTreeCategory() )
+{    
     _id = ++_counter;
 }
 

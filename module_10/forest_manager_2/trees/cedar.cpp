@@ -3,19 +3,17 @@
 #include <iomanip>
 #include <iostream>
 
-Cedar::Cedar()
-{
-    _treeType = TreeNamesGenerator::TreeType::CEDAR;
-    _treeCategory = TreeNamesGenerator::TreeCategory::CONIFEROUS;
-    _name = TreeNamesGenerator::generateName( _treeType );
+Cedar::Cedar() : Tree(TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::CEDAR ),
+           TreeNamesGenerator::TreeType::CEDAR,
+           TreeNamesGenerator::TreeCategory::CONIFEROUS )
+{    
     _id = ++_counter;
 }
 
-Cedar::Cedar( const Cedar& cedar )
-{
-    _treeType = cedar.getTreeType();
-    _treeCategory = cedar.getTreeCategory();
-    _name = cedar.getName();
+Cedar::Cedar( const Cedar& cedar ) : Tree( cedar.getName(),
+           cedar.getTreeType(),
+           cedar.getTreeCategory() )
+{   
     _id = ++_counter;
 }
 

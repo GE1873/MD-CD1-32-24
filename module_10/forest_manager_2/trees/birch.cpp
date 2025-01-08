@@ -3,19 +3,17 @@
 #include <iomanip>
 #include <iostream>
 
-Birch::Birch()
+Birch::Birch() : Tree(TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::BIRCH ),
+           TreeNamesGenerator::TreeType::BIRCH,
+           TreeNamesGenerator::TreeCategory::DECIDUOUS )
 {
-    _treeType = TreeNamesGenerator::TreeType::BIRCH;
-    _treeCategory = TreeNamesGenerator::TreeCategory::DECIDUOUS;
-    _name = TreeNamesGenerator::generateName( _treeType );
     _id = ++_counter;
 }
 
-Birch::Birch( const Birch& birch )
-{
-    _treeType = birch.getTreeType();
-    _treeCategory = birch.getTreeCategory();
-    _name = birch.getName();
+Birch::Birch( const Birch& birch ) : Tree( birch.getName(),
+           birch.getTreeType(),
+           birch.getTreeCategory() )
+{    
     _id = ++_counter;
 }
 

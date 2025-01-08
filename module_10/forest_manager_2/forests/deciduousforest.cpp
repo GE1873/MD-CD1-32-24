@@ -1,17 +1,6 @@
 #include "deciduousforest.h"
 #include <iostream>
 
-DeciduousForest::~DeciduousForest()
-{
-    if ( !_trees.empty() ){
-        for (const Tree* tree : _trees)
-        {
-            if( tree ) delete tree;
-        }
-        _trees.clear();
-    }
-}
-
 void DeciduousForest::growUp( Tree* tree )
 {
     if( tree ){

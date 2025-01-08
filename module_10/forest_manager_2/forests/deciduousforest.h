@@ -5,9 +5,7 @@
 
 class DeciduousForest : public Forest
 {
-public:    
-    ~DeciduousForest();
-
+public:
     ///
     /// \brief Adds a tree to the forest
     /// \param upTree

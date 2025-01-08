@@ -11,6 +11,7 @@
 class Forest
 {
 public:
+    virtual ~Forest();
     ///
     /// \brief Adds a tree to the forest
     /// \param tree

@@ -2,6 +2,12 @@
 #include <iomanip>
 #include <iostream>
 
+Tree::Tree(std::string name, TreeNamesGenerator::TreeType treeType, TreeNamesGenerator::TreeCategory treeCategory) :
+    _name{ name }, _treeType{ treeType }, _treeCategory{ treeCategory }
+{
+
+}
+
 std::string Tree::getName() const
 {
     return _name;
@@ -21,3 +27,4 @@ TreeNamesGenerator::TreeCategory Tree::getTreeCategory() const
 {
     return _treeCategory;
 }
+

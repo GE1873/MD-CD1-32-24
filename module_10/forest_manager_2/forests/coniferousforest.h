@@ -5,9 +5,7 @@
 
 class ConiferousForest : public Forest
 {
-public:    
-    ~ConiferousForest();
-
+public:
     ///
     /// \brief Adds a tree to the forest
     /// \param upTree

@@ -10,6 +10,7 @@
 class Tree
 {
 public:
+    explicit Tree( std::string name, TreeNamesGenerator::TreeType treeType, TreeNamesGenerator::TreeCategory treeCategory );
     virtual ~Tree() = default;
 
     ///

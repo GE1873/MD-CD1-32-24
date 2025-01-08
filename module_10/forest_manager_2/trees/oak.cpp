@@ -3,19 +3,17 @@
 #include <iomanip>
 #include <iostream>
 
-Oak::Oak()
-{
-    _treeType = TreeNamesGenerator::TreeType::OAK;
-    _treeCategory = TreeNamesGenerator::TreeCategory::DECIDUOUS;
-    _name = TreeNamesGenerator::generateName( _treeType );
+Oak::Oak() : Tree(TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::OAK ),
+           TreeNamesGenerator::TreeType::OAK,
+           TreeNamesGenerator::TreeCategory::DECIDUOUS )
+{    
     _id = ++_counter;
 }
 
-Oak::Oak( const Oak& oak )
-{
-    _treeType = oak.getTreeType();
-    _treeCategory = oak.getTreeCategory();
-    _name = oak.getName();
+Oak::Oak( const Oak& oak ) : Tree( oak.getName(),
+           oak.getTreeType(),
+           oak.getTreeCategory() )
+{    
     _id = ++_counter;
 }
 

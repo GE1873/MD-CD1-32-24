@@ -1,17 +1,6 @@
 #include "coniferousforest.h"
 #include <iostream>
 
-ConiferousForest::~ConiferousForest()
-{
-    if ( !_trees.empty() ){
-        for (const Tree* tree : _trees)
-        {
-            if( tree ) delete tree;
-        }
-        _trees.clear();
-    }
-}
-
 void ConiferousForest::growUp( Tree* tree )
 {
     if( tree ){
