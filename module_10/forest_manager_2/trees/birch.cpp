@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <iostream>
 
-Birch::Birch() : Tree(TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::BIRCH ),
+Birch::Birch() : Tree( TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::BIRCH ),
            TreeNamesGenerator::TreeType::BIRCH,
            TreeNamesGenerator::TreeCategory::DECIDUOUS )
 {

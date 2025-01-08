@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <iostream>
 
-Tree::Tree(std::string name, TreeNamesGenerator::TreeType treeType, TreeNamesGenerator::TreeCategory treeCategory) :
+Tree::Tree( std::string name, TreeNamesGenerator::TreeType treeType, TreeNamesGenerator::TreeCategory treeCategory ) :
     _name{ name }, _treeType{ treeType }, _treeCategory{ treeCategory }
 {
 }

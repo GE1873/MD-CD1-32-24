@@ -2,7 +2,7 @@
 
 std::string TreeNamesGenerator::generateName( const TreeType treeType )
 {
-    std::string res {};
+    std::string res{};
     switch ( treeType ) {
     case TreeType::PINE:
     {
@@ -35,7 +35,7 @@ std::string TreeNamesGenerator::generateName( const TreeType treeType )
 
 std::string TreeNamesGenerator::getTypeName( const TreeType treeType )
 {
-    std::string res {};
+    std::string res{};
     switch ( treeType ) {
     case TreeType::PINE:
     {

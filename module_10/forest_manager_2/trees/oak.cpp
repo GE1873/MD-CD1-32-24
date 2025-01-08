@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <iostream>
 
-Oak::Oak() : Tree(TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::OAK ),
+Oak::Oak() : Tree( TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::OAK ),
            TreeNamesGenerator::TreeType::OAK,
            TreeNamesGenerator::TreeCategory::DECIDUOUS )
 {    

@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <iostream>
 
-Pine::Pine() : Tree(TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::PINE ),
+Pine::Pine() : Tree( TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::PINE ),
            TreeNamesGenerator::TreeType::PINE,
            TreeNamesGenerator::TreeCategory::CONIFEROUS )
 {   

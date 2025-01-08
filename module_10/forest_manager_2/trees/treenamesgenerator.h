@@ -31,7 +31,7 @@ public:
     static std::string generateName( const TreeType treeType );
 
     ///
-    /// \brief Gets a human-readable name for the tree
+    /// \brief Gets a human-readable type name for the tree
     /// \param treeType
     /// \return
     ///

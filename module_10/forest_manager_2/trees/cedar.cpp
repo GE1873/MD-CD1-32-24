@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <iostream>
 
-Cedar::Cedar() : Tree(TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::CEDAR ),
+Cedar::Cedar() : Tree( TreeNamesGenerator::generateName( TreeNamesGenerator::TreeType::CEDAR ),
            TreeNamesGenerator::TreeType::CEDAR,
            TreeNamesGenerator::TreeCategory::CONIFEROUS )
 {    
