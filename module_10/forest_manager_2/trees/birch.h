@@ -3,6 +3,10 @@
 
 #include "tree.h"
 
+
+///
+/// \brief The Birch class for creating birch tree objects
+///
 class Birch : public Tree
 {
 public:

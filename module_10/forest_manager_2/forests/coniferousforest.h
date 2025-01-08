@@ -3,6 +3,9 @@
 
 #include "forest.h"
 
+///
+/// \brief The ConiferousForest class for creating coniferous forest objects
+///
 class ConiferousForest : public Forest
 {
 public:

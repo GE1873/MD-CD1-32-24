@@ -3,6 +3,9 @@
 
 #include "tree.h"
 
+///
+/// \brief The Pine class for creating pine tree objects
+///
 class Pine : public Tree
 {
 public:

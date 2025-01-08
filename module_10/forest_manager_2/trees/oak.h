@@ -3,6 +3,9 @@
 
 #include "tree.h"
 
+///
+/// \brief The Oak class for creating oak tree objects
+///
 class Oak : public Tree
 {
 public:

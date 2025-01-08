@@ -3,6 +3,9 @@
 
 #include "forest.h"
 
+///
+/// \brief The DeciduousForest class for creating deciduous forest objects
+///
 class DeciduousForest : public Forest
 {
 public:

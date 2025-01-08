@@ -5,7 +5,7 @@
 #include "treenamesgenerator.h"
 
 ///
-/// \brief The Tree class for creating tree objects
+/// \brief The Tree abstract class
 ///
 class Tree
 {

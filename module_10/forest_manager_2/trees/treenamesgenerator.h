@@ -3,6 +3,9 @@
 
 #include <string>
 
+///
+/// \brief TreeNamesGenerator class for generating tree names
+///
 class TreeNamesGenerator
 {
 public:

@@ -3,6 +3,9 @@
 
 #include "tree.h"
 
+///
+/// \brief The Cedar class for creating cedar tree objects
+///
 class Cedar : public Tree
 {
 public:

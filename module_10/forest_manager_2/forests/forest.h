@@ -6,7 +6,7 @@
 #include <vector>
 
 ///
-/// \brief The Forest class for creating and managing forest objects
+/// \brief The Forest abstract class
 ///
 class Forest
 {
