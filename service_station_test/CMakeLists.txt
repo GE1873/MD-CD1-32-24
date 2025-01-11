@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(service_station_test    
     main.cpp
     servicestation.h
+#    servicestation.cpp
     car.h
     car.cpp
     passengercar.h
