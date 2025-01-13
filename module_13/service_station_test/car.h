@@ -10,10 +10,11 @@
 ///
 class Car
 {
-public:
-    explicit Car( std::string name, bool isRepaired = false );
-    virtual ~Car() = default;
+protected:
+    explicit Car( std::string name, bool isRepaired = false );    
 
+public:
+    virtual ~Car() = default;
     ///
     /// \brief Repairs the car
     ///
