@@ -46,7 +46,7 @@ public:
                 _garage.addToGarage( car );
             }
             catch ( const std::invalid_argument& e ){
-                throw e;
+                throw;
             }
         }
         _cars.clear();
