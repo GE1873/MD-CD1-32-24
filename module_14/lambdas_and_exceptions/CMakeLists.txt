@@ -6,7 +6,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(lambdas_and_exceptions    
-    main.cpp    
+    main.cpp
+    calculator.h
+    calculator.cpp
+    invalidlogargument.h
+    invalidlogargument.cpp
+    invalidradusargument.h
+    invalidradusargument.cpp
 )
 
 install(TARGETS lambdas_and_exceptions
