@@ -9,16 +9,16 @@
 class InvalidLogArgument
 {
 private:
-    std::string m_error;
+    std::string _error;
 
 public:
-    InvalidLogArgument(std::string error);
+    InvalidLogArgument(const std::string& error);
 
     ///
     /// \brief Gets error message
     /// \return
     ///
-    const char* getError();
+    const char* getError() const;
 };
 
 #endif // INVALIDLOGARGUMENT_H

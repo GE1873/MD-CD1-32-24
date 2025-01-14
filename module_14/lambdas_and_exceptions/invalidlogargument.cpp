@@ -1,10 +1,10 @@
 #include "invalidlogargument.h"
 
-InvalidLogArgument::InvalidLogArgument(std::string error) : m_error(error)
+InvalidLogArgument::InvalidLogArgument(const std::string& error) : _error(error)
 {
 }
 
-const char* InvalidLogArgument::getError()
+const char* InvalidLogArgument::getError() const
 {
-    return m_error.c_str();
+    return _error.c_str();
 }

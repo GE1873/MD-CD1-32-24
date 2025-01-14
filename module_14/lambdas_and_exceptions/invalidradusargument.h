@@ -10,10 +10,10 @@
 class InvalidRadusArgument: public std::exception
 {
 private:
-    std::string m_error;
+    std::string _error;
 
 public:
-    InvalidRadusArgument(std::string error);
+    InvalidRadusArgument(const std::string& error);
 
     ///
     /// \brief Gets error message

@@ -3,7 +3,7 @@
 #include "invalidradusargument.h"
 
 Calculator::Calculator(){
-    _methods.resize( 4 );
+    _methods.resize(4);
 
     _methods[static_cast<int>(MethodName::DIVISION)] = [] (double value1, double value2){
         if(value2 == 0) throw std::invalid_argument("Error : The divisor is zero!");
@@ -26,7 +26,7 @@ Calculator::Calculator(){
     };
 }
 
-double Calculator::calculate(MethodName method, double value1, double value2){
+double Calculator::calculate(const MethodName method, double value1, double value2){
     if(method != MethodName::UNKNOWN){
         auto _method = getMethod(method);
         if(_method) {
@@ -35,6 +35,6 @@ double Calculator::calculate(MethodName method, double value1, double value2){
     }else return 0.0;
 }
 
-std::function<double(double, double)> Calculator::getMethod(MethodName method){
+std::function<double(double, double)> Calculator::getMethod(const MethodName method) const{
     return _methods[static_cast<double>(method)];
 }

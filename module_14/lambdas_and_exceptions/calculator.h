@@ -28,10 +28,10 @@ public:
     /// \param value2
     /// \return
     ///
-    double calculate(MethodName method, double value1, double value2 = 0);
+    double calculate(const MethodName method, double value1, double value2 = 0);
 
 private:
-    std::function<double(double, double)> getMethod(MethodName method);
+    std::function<double(double, double)> getMethod(const MethodName method) const;
 
     std::vector<std::function<double(double, double)>> _methods{};
 };

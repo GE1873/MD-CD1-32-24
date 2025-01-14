@@ -1,10 +1,10 @@
 #include "invalidradusargument.h"
 
-InvalidRadusArgument::InvalidRadusArgument(std::string error) : m_error(error)
+InvalidRadusArgument::InvalidRadusArgument(const std::string& error) : _error(error)
 {
 }
 
-const char *InvalidRadusArgument::what() const noexcept
+const char* InvalidRadusArgument::what() const noexcept
 {
-    return m_error.c_str();
+    return _error.c_str();
 }
