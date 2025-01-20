@@ -13,7 +13,7 @@ private:
     std::string _error;
 
 public:
-    InvalidRadusArgument(const std::string& error);
+    InvalidRadusArgument( const std::string& error );
 
     ///
     /// \brief Gets error message

@@ -8,9 +8,9 @@
 ///
 /// \brief The Calculator class
 ///
-class Calculator{
+class Calculator {
 public:
-    enum class MethodName{
+    enum class MethodName {
         UNKNOWN = -1,
         DIVISION,
         SQUARE_ROOT,
@@ -28,12 +28,12 @@ public:
     /// \param value2
     /// \return
     ///
-    double calculate(const MethodName method, double value1, double value2 = 0);
+    double calculate( const MethodName method, double value1, double value2 = 0 );
 
 private:
-    std::function<double(double, double)> getMethod(const MethodName method) const;
+    std::function<double( double, double )> getMethod( const MethodName method ) const;
 
-    std::vector<std::function<double(double, double)>> _methods{};
+    std::vector<std::function<double( double, double )>> _methods{};
 };
 
 #endif // CALCULATOR_H

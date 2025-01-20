@@ -12,13 +12,13 @@ private:
     std::string _error;
 
 public:
-    InvalidLogArgument(const std::string& error);
+    InvalidLogArgument( const std::string& error );
 
     ///
     /// \brief Gets error message
     /// \return
     ///
-    const char* getError() const;
+    const char* getError() const noexcept;
 };
 
 #endif // INVALIDLOGARGUMENT_H

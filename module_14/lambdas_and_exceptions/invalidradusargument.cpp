@@ -1,6 +1,6 @@
 #include "invalidradusargument.h"
 
-InvalidRadusArgument::InvalidRadusArgument(const std::string& error) : _error(error)
+InvalidRadusArgument::InvalidRadusArgument( const std::string& error ) : _error{ error }
 {
 }
 

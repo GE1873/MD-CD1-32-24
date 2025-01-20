@@ -8,30 +8,30 @@ int main(){
     double res{};
 
     try {
-        res = calculator.calculate(Calculator::MethodName::DIVISION, 5, 0);
+        res = calculator.calculate( Calculator::MethodName::DIVISION, 5, 0 );
         std::cout << res << std::endl;
-    } catch (std::invalid_argument& e) {
+    } catch ( std::invalid_argument& e ) {
         std::cerr << e.what() << std::endl;
     }
 
     try {
-        res = calculator.calculate(Calculator::MethodName::SQUARE_ROOT, -5);
+        res = calculator.calculate( Calculator::MethodName::SQUARE_ROOT, -5 );
         std::cout << res << std::endl;
-    } catch (std::domain_error& e) {
+    } catch ( std::domain_error& e ) {
         std::cerr << e.what() << std::endl;
     }
 
     try {
-        res = calculator.calculate(Calculator::MethodName::LOGARITHM, -5);
+        res = calculator.calculate( Calculator::MethodName::LOGARITHM, -5 );
         std::cout << res << std::endl;
-    } catch (InvalidLogArgument& e) {
+    } catch ( InvalidLogArgument& e ) {
         std::cerr << e.getError() << std::endl;
     }
 
     try {
-        res = calculator.calculate(Calculator::MethodName::CIRCLE_AREA, -5);
+        res = calculator.calculate( Calculator::MethodName::CIRCLE_AREA, -5 );
         std::cout << res << std::endl;
-    } catch (InvalidRadusArgument& e) {
+    } catch ( InvalidRadusArgument& e ) {
         std::cerr << e.what() << std::endl;
     }
 
