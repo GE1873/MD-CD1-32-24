@@ -6,6 +6,7 @@
 #include "qcombobox.h"
 #include "qgridlayout.h"
 #include "qlabel.h"
+#include "qmessagebox.h"
 #include <QMainWindow>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
@@ -32,8 +33,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui{};
-    QNetworkAccessManager *manager{};
-    QNetworkRequest request{};
+    QNetworkAccessManager *manager{};    
     ConversionCalculator* cc{};
     QWidget *centralwidget{};
     QWidget *gridLayoutWidget{};
@@ -42,6 +42,8 @@ private:
     MyLineEdit *other_myLineEdit{};
     QLabel *label{};
     QComboBox *currencyName_comboBox{};
+    QNetworkRequest request{};
+    QMessageBox* messageBox{};
     bool _isBynFocussed{};
     bool _isOtherFocussed{};
 };

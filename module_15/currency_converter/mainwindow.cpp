@@ -12,6 +12,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QComboBox>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -22,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     this->setFixedSize(300,100);
 
     cc = new ConversionCalculator(this);
+
+    messageBox = new QMessageBox(this);
 
     gridLayoutWidget = new QWidget(this);
     gridLayoutWidget->setObjectName("gridLayoutWidget");
@@ -68,24 +71,24 @@ MainWindow::MainWindow(QWidget *parent)
 
     manager = new QNetworkAccessManager(this);
     connect(manager, &QNetworkAccessManager::finished,
-                     this, [cc_val = cc, byn_myLineEdit_val = byn_myLineEdit](QNetworkReply *reply) {
-                         if (reply->error()) {
-                             qDebug() << reply->errorString();
-                             return;
-                         }
+            this, [cc_val = cc, byn_myLineEdit_val = byn_myLineEdit, messageBox_val = messageBox](QNetworkReply *reply) {
+                if (reply->error()) {
+                    messageBox_val->critical(0,"Error",reply->errorString());
+                    messageBox_val->setFixedSize(500,250);
+                    return;
+                }
 
-                         QString strReply = (QString)reply->readAll();
-                         QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
-                         QJsonObject jsonObject = jsonResponse.object();
+                QString strReply = (QString)reply->readAll();
+                QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
+                QJsonObject jsonObject = jsonResponse.object();
 
-                         cc_val->setCurrencyScale(jsonObject["Cur_Scale"].toDouble());
-                         cc_val->setCurrencyRate(jsonObject["Cur_OfficialRate"].toDouble());
+                cc_val->setCurrencyScale(jsonObject["Cur_Scale"].toDouble());
+                cc_val->setCurrencyRate(jsonObject["Cur_OfficialRate"].toDouble());
 
-                         cc_val->calculateByn();
+                cc_val->calculateByn();
 
-                         byn_myLineEdit_val->setText(QString::number(cc_val->getBynValue()));
-                         byn_myLineEdit_val->setText(QString::number(cc_val->getBynValue()));
-                     });
+                byn_myLineEdit_val->setText(QString::number(cc_val->getBynValue()));
+            });
 
     request.setUrl(QUrl("https://api.nbrb.by/exrates/rates/431"));
     manager->get(request);
