@@ -1,7 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "conversioncalculator.h"
+#include "mylineedit.h"
+#include "qcombobox.h"
+#include "qgridlayout.h"
+#include "qlabel.h"
 #include <QMainWindow>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +23,26 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void currencyName_comboBox_currentIndexChanged(int index);
+    void byn_myLineEdit_textChanged(const QString &arg);
+    void byn_myLineEdit_focussed(bool hasFocus);
+    void other_myLineEdit_textChanged(const QString &arg);
+    void other_myLineEdit_focussed(bool hasFocus);
+
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui{};
+    QNetworkAccessManager *manager{};
+    QNetworkRequest request{};
+    ConversionCalculator* cc{};
+    QWidget *centralwidget{};
+    QWidget *gridLayoutWidget{};
+    QGridLayout *gridLayout{};
+    MyLineEdit* byn_myLineEdit{};
+    MyLineEdit *other_myLineEdit{};
+    QLabel *label{};
+    QComboBox *currencyName_comboBox{};
+    bool _isBynFocussed{};
+    bool _isOtherFocussed{};
 };
 #endif // MAINWINDOW_H
