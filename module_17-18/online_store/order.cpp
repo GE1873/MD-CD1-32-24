@@ -18,7 +18,7 @@ Order::Order( Order&& order )
 
 Order::Order( Order& order )
 {
-    _orderAmount = order.getOrderAmount();
+    _orderAmount = order._orderAmount;
     _orderDate = createOrderDate();
     _orderStatus = OrderStatus::New;
     _orderNumber = ++_counter;

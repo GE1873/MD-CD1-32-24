@@ -49,7 +49,7 @@ void Manager::processOrders()
                              std::make_move_iterator( _orders.begin() ),
                              std::make_move_iterator( poi ) );
 
-    _orders.erase(_orders.begin(), poi);
+    _orders.erase( _orders.begin(), poi );
 }
 
 void Manager::printIncomingOrders() const
@@ -69,10 +69,7 @@ void Manager::printOrders( const std::vector<Order>& orders ) const
         std::cout << std::left << std::setw( 30 ) << "Order number : " <<  order.getOrderNumber() << std::endl;
         std::cout << std::left << std::setw( 30 ) << "Order status : " <<  order.getOrderStatusName( order.getOrderStatus() ) << std::endl;
         std::cout << std::left << std::setw( 30 ) << "Order amount : " <<  order.getOrderAmount() << std::endl;
-        char dateString[100];
         std::time_t t = order.getOrderDate();
-        std::tm* olt = localtime( &t );
-        strftime( dateString, sizeof( char )*100, "%B %d, %Y, %H:%M:%S", olt );
-        std::cout << std::left << std::setw( 30 ) << "Order date : " << dateString << std::endl;
+        std::cout << std::left << std::setw( 30 ) << "Order date : " << std::put_time(std::localtime(&t), "%B %d, %Y, %H:%M:%S") << std::endl;
     }
 }
