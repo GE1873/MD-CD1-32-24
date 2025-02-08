@@ -22,7 +22,7 @@ public:
     ///
     /// \brief Processing the order
     ///
-    void processOrders();
+    void processIncomingOrders();
 
     ///
     /// \brief Prints incoming orders

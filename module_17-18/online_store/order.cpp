@@ -18,10 +18,10 @@ Order::Order( Order&& order )
 
 Order::Order( Order& order )
 {
-    _orderAmount = order._orderAmount;
-    _orderDate = createOrderDate();
-    _orderStatus = OrderStatus::New;
-    _orderNumber = ++_counter;
+    this->_orderAmount = order._orderAmount;
+    this->_orderDate = createOrderDate();
+    this->_orderStatus = OrderStatus::New;
+    this->_orderNumber = ++_counter;
     std::cout << "The order copyed! (copy constructor)" << std::endl;
 }
 

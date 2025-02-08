@@ -23,7 +23,7 @@ void Manager::addOrder( double orderAmount )
     } else _orders.emplace_back( orderAmount );
 }
 
-void Manager::processOrders()
+void Manager::processIncomingOrders()
 {
     std::transform( make_move_iterator( _orders.begin() ), make_move_iterator( _orders.end() ), _orders.begin(),
                    []( Order order ) {

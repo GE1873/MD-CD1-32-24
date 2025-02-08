@@ -25,7 +25,7 @@ int main()
     std::cout << std::left << std::setw( 30 ) << "Incoming Orders : " << std::endl;
     manager.printIncomingOrders();
 
-    manager.processOrders();
+    manager.processIncomingOrders();
 
     std::cout << "------------------------------------------------------" << std::endl;
     std::cout << std::left << std::setw( 30 ) << "Orders in Processing : " << std::endl;
