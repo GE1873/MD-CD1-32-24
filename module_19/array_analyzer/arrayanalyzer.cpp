@@ -58,7 +58,7 @@ void ArrayAnalyzer::printResults()
     }
 }
 
-std::function<void (std::promise<int> promise)> ArrayAnalyzer::getMethod( MethodName methodName ) {
+std::function<void ( std::promise<int> )> ArrayAnalyzer::getMethod( MethodName methodName ) {
     if ( methodName == MethodName::Sum ) {
         return [this]( std::promise<int> promise ){
             int sum{};

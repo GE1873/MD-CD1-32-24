@@ -56,9 +56,9 @@ public:
 
 private:
     std::string getMethodName( MethodName methodName ) const;
-    std::function<void( std::promise<int> promise )> getMethod( MethodName methodName = MethodName::Unknown );
+    std::function<void( std::promise<int> )> getMethod( MethodName methodName = MethodName::Unknown );
 
-    std::map<MethodName, std::function<void( std::promise<int> promise )>> _methods{};
+    std::map<MethodName, std::function<void( std::promise<int> )>> _methods{};
     std::vector<std::thread> _threads{};
     std::map<MethodName, std::future<int>> _futures{};
     size_t _size{};
