@@ -28,8 +28,14 @@ void ArrayAnalyzer::analyzeArray()
     if( _methods.empty() ) throw std::invalid_argument( "Error : There are no methods for analysis!" );
     for( const auto& method : _methods ) {
         if( method.second ) {
-            _futures[method.first] = std::async( std::launch::async, method.second );
+            std::promise<int> promise;
+            _futures[method.first] = promise.get_future();
+            _threads.emplace_back( method.second, std::move( promise ) );
         }
+    }
+
+    for ( auto& thread : _threads ) {
+        thread.join();
     }
 }
 
@@ -52,39 +58,36 @@ void ArrayAnalyzer::printResults()
     }
 }
 
-std::function<int()> ArrayAnalyzer::getMethod( MethodName methodName ) {
+std::function<void (std::promise<int> promise)> ArrayAnalyzer::getMethod( MethodName methodName ) {
     if ( methodName == MethodName::Sum ) {
-        return [this](){
+        return [this]( std::promise<int> promise ){
             int sum{};
             for ( size_t i{}; i < this->_size; ++i ) {
                 sum += this->_data[i];
             }
-            std::lock_guard<std::mutex> lock( this->_mtx );
-            return sum;
+            promise.set_value( sum );
         };
     }
     else if( methodName == MethodName::Min ) {
-        return [this](){
+        return [this]( std::promise<int> promise ){
             int min{this->_data[0]};
             for ( size_t i{1}; i < this->_size; ++i ) {
                 if ( this->_data[i] < min ) {
                     min = this->_data[i];
                 }
             }
-            std::lock_guard<std::mutex> lock( this->_mtx );
-            return min;
+            promise.set_value( min );
         };
     }
     else if( methodName == MethodName::Max ) {
-        return [this](){
+        return [this]( std::promise<int> promise ){
             int max{this->_data[0]};
             for ( size_t i{1}; i < this->_size; ++i ) {
                 if ( this->_data[i] > max ) {
                     max = this->_data[i];
                 }
             }
-            std::lock_guard<std::mutex> lock( this->_mtx );
-            return max;
+            promise.set_value( max );
         };
     }
     else if( methodName == MethodName::Unknown ) {
