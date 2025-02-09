@@ -32,6 +32,7 @@ void ArrayAnalyzer::analyzeArray()
             _futures[method.first] = promise.get_future();
             _threads.emplace_back( method.second, std::move( promise ) );
         }
+        else std::cerr << "Error : Method for " + getMethodName( method.first ) + " is undefined!" << std::endl;
     }
 
     for ( auto& thread : _threads ) {
