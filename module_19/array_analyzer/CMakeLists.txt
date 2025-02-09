@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(array_analyzer    
     main.cpp    
+    arrayanalyzer.h
+    arrayanalyzer.cpp    
 )
 
 install(TARGETS array_analyzer
