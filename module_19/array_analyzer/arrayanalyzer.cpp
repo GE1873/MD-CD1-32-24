@@ -19,7 +19,7 @@ void ArrayAnalyzer::fillArray()
 {
     if( _size <= 0 ) throw std::invalid_argument( "Error : Invalid array size!" );
     for ( size_t i{}; i < _size; ++i ) {
-        _data[i] = 0 + (rand() % 101);
+        _data[i] = 1 + (rand() % 100);
     }
 }
 
