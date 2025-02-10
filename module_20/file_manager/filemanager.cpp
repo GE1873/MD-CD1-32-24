@@ -28,9 +28,10 @@ void FileManager::analizeFolderContent()
 void FileManager::printFolderContent()
 {
     std::cout << "------------------------------------------------------" << std::endl;
-    std::cout << "Number of files in the folder : " << _filesCounter << std::endl;
-    std::cout << "Number of folders in the folder : " << _foldersCounter << std::endl;
+    std::cout << std::left << std::setw( 35 ) << "Number of files in the folder : " << _filesCounter << std::endl;
+    std::cout << std::left << std::setw( 35 ) << "Number of folders in the folder : " << _foldersCounter << std::endl;
 
+    std::cout << "------------------------------------------------------" << std::endl;
     if ( !_exeFiles.empty() ) {
         std::cout << "Files with the .exe extension : " << std::endl;
         for ( const auto& file : _exeFiles ) {
