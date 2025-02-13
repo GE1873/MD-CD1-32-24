@@ -6,6 +6,8 @@
 ///
 class Tariff
 {
+public:
+    virtual ~Tariff() = default;
 protected:
     Tariff() = default;
 
