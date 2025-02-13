@@ -16,7 +16,7 @@ int main(){
     float distance = 500.0f;
 
     auto groundTariff = std::make_unique<GroundTariff>();
-    groundTariff->setDistanceRate( 1.0f );
+    groundTariff->setDistanceRate( 0.5f );
     try {
         factory.setTariff( DeliveryStrategyFactory::DeliveryTypes::Ground, std::move( groundTariff ) );
     } catch ( std::invalid_argument& e ) {
@@ -24,8 +24,8 @@ int main(){
     }
 
     auto airTariff = std::make_unique<AirTariff>();
-    airTariff->setDistanceRate( 2.0f );
-    airTariff->setWeightRate( 3.0f );
+    airTariff->setDistanceRate( 0.3f );
+    airTariff->setWeightRate( 2.5f );
     try {
         factory.setTariff( DeliveryStrategyFactory::DeliveryTypes::Air, std::move( airTariff ) );
     } catch ( std::invalid_argument& e ) {
@@ -33,8 +33,8 @@ int main(){
     }
 
     auto groundExpressTariff = std::make_unique<GroundExpressTariff>();
-    groundExpressTariff->setDistanceRate( 4.0f );
-    groundExpressTariff->setTimeRate( 5.0f );
+    groundExpressTariff->setDistanceRate( 2.5f );
+    groundExpressTariff->setTimeRate( 3.0f );
     try {
         factory.setTariff( DeliveryStrategyFactory::DeliveryTypes::Ground_Express, std::move( groundExpressTariff ) );
     } catch ( std::invalid_argument& e ) {
@@ -42,9 +42,9 @@ int main(){
     }
 
     auto airExpressTariff = std::make_unique<AirExpressTariff>();
-    airExpressTariff->setDistanceRate( 6.0f );
-    airExpressTariff->setWeightRate( 7.0f );
-    airExpressTariff->setTimeRate( 8.0f );
+    airExpressTariff->setDistanceRate( 2.2f );
+    airExpressTariff->setWeightRate( 3.0f );
+    airExpressTariff->setTimeRate( 4.0f );
     try {
         factory.setTariff( DeliveryStrategyFactory::DeliveryTypes::Air_Express, std::move( airExpressTariff ) );
     } catch ( std::invalid_argument& e ) {

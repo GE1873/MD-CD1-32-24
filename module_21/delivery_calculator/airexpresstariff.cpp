@@ -1,6 +1,6 @@
 #include "airexpresstariff.h"
 
-AirExpressTariff::AirExpressTariff() : Tariff()
+AirExpressTariff::AirExpressTariff()
 {
 }
 

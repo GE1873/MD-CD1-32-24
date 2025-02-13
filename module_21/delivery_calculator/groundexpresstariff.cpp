@@ -1,6 +1,6 @@
 #include "groundexpresstariff.h"
 
-GroundExpressTariff::GroundExpressTariff() : Tariff()
+GroundExpressTariff::GroundExpressTariff()
 {
 }
 

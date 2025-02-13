@@ -1,6 +1,6 @@
 #include "groundtariff.h"
 
-GroundTariff::GroundTariff() : Tariff()
+GroundTariff::GroundTariff()
 {
 }
 
